@@ -1,0 +1,1057 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;1,300;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/highcharts-more.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <div class="header-logo"></div>
+        <form class="header-form">
+          <input type="text" placeholder="Enter the league name..." />
+        </form>
+        <div class="header-search">
+          <button class="header-form-btn">Search</button>
+        </div>
+      </header>
+      <div class="content">
+        <div class="content-table">
+          <!----
+          <h4 class="content-table-heading">Current Standings</h4>
+          <ul class="current-standings">
+            <li class="team">
+              <a href="#" class="current-standings-link">
+                <figure class="team-fig">
+                  <img
+                    src="https://media.api-sports.io/football/teams/85.png"
+                    alt="foot-logo"
+                  />
+                </figure>
+                <h4 class="team-h4">Paris Saint German</h4>
+                <p class="team-p">31</p>
+              </a>
+            </li>
+            <li class="team">
+              <a href="#" class="current-standings-link">
+                <figure class="team-fig">
+                  <img
+                    src="https://media.api-sports.io/football/teams/85.png"
+                    alt="foot-logo"
+                  />
+                </figure>
+                <h4 class="team-h4">Paris Saint German</h4>
+                <p class="team-p">31</p>
+              </a>
+            </li>
+            <li class="team">
+              <a href="#" class="current-standings-link">
+                <figure class="team-fig">
+                  <img
+                    src="https://media.api-sports.io/football/teams/85.png"
+                    alt="foot-logo"
+                  />
+                </figure>
+                <h4 class="team-h4">Paris Saint German</h4>
+                <p class="team-p">31</p>
+              </a>
+            </li>
+            <li class="team">
+              <a href="#" class="current-standings-link">
+                <figure class="team-fig">
+                  <img
+                    src="https://media.api-sports.io/football/teams/85.png"
+                    alt="foot-logo"
+                  />
+                </figure>
+                <h4 class="team-h4">Paris Saint German</h4>
+                <p class="team-p">31</p>
+              </a>
+            </li>
+            <li class="team">
+              <a href="#" class="current-standings-link">
+                <figure class="team-fig">
+                  <img
+                    src="https://media.api-sports.io/football/teams/85.png"
+                    alt="foot-logo"
+                  />
+                </figure>
+                <h4 class="team-h4">Paris Saint German</h4>
+                <p class="team-p">31</p>
+              </a>
+            </li>
+            <li class="team">
+              <a href="#" class="current-standings-link">
+                <figure class="team-fig">
+                  <img
+                    src="https://media.api-sports.io/football/teams/85.png"
+                    alt="foot-logo"
+                  />
+                </figure>
+                <h4 class="team-h4">Paris Saint German</h4>
+                <p class="team-p">31</p>
+              </a>
+            </li>
+            <li class="team">
+              <a href="#" class="current-standings-link">
+                <figure class="team-fig">
+                  <img
+                    src="https://media.api-sports.io/football/teams/85.png"
+                    alt="foot-logo"
+                  />
+                </figure>
+                <h4 class="team-h4">Paris Saint German</h4>
+                <p class="team-p">31</p>
+              </a>
+            </li>
+            <li class="team">
+              <a href="#" class="current-standings-link">
+                <figure class="team-fig">
+                  <img
+                    src="https://media.api-sports.io/football/teams/85.png"
+                    alt="foot-logo"
+                  />
+                </figure>
+                <h4 class="team-h4">Paris Saint German</h4>
+                <p class="team-p">31</p>
+              </a>
+            </li>
+            <li class="team">
+              <a href="#" class="current-standings-link">
+                <figure class="team-fig">
+                  <img
+                    src="https://media.api-sports.io/football/teams/85.png"
+                    alt="foot-logo"
+                  />
+                </figure>
+                <h4 class="team-h4">Paris Saint German</h4>
+                <p class="team-p">31</p>
+              </a>
+            </li>
+            <li class="team">
+              <a href="#" class="current-standings-link">
+                <figure class="team-fig">
+                  <img
+                    src="https://media.api-sports.io/football/teams/85.png"
+                    alt="foot-logo"
+                  />
+                </figure>
+                <h4 class="team-h4">Paris Saint German</h4>
+                <p class="team-p">31</p>
+              </a>
+            </li>
+            <li class="team">
+              <a href="#" class="current-standings-link">
+                <figure class="team-fig">
+                  <img
+                    src="https://media.api-sports.io/football/teams/85.png"
+                    alt="foot-logo"
+                  />
+                </figure>
+                <h4 class="team-h4">Paris Saint German</h4>
+                <p class="team-p">31</p>
+              </a>
+            </li>
+            <li class="team">
+              <a href="#" class="current-standings-link">
+                <figure class="team-fig">
+                  <img
+                    src="https://media.api-sports.io/football/teams/85.png"
+                    alt="foot-logo"
+                  />
+                </figure>
+                <h4 class="team-h4">Paris Saint German</h4>
+                <p class="team-p">31</p>
+              </a>
+            </li>
+            <li class="team">
+              <a href="#" class="current-standings-link">
+                <figure class="team-fig">
+                  <img
+                    src="https://media.api-sports.io/football/teams/85.png"
+                    alt="foot-logo"
+                  />
+                </figure>
+                <h4 class="team-h4">Paris Saint German</h4>
+                <p class="team-p">31</p>
+              </a>
+            </li>
+            <li class="team">
+              <a href="#" class="current-standings-link">
+                <figure class="team-fig">
+                  <img
+                    src="https://media.api-sports.io/football/teams/85.png"
+                    alt="foot-logo"
+                  />
+                </figure>
+                <h4 class="team-h4">Paris Saint German</h4>
+                <p class="team-p">31</p>
+              </a>
+            </li>
+            <li class="team">
+              <a href="#" class="current-standings-link">
+                <figure class="team-fig">
+                  <img
+                    src="https://media.api-sports.io/football/teams/85.png"
+                    alt="foot-logo"
+                  />
+                </figure>
+                <h4 class="team-h4">Paris Saint German</h4>
+                <p class="team-p">31</p>
+              </a>
+            </li>
+            <li class="team">
+              <a href="#" class="current-standings-link">
+                <figure class="team-fig">
+                  <img
+                    src="https://media.api-sports.io/football/teams/85.png"
+                    alt="foot-logo"
+                  />
+                </figure>
+                <h4 class="team-h4">Paris Saint German</h4>
+                <p class="team-p">31</p>
+              </a>
+            </li>
+            <li class="team">
+              <a href="#" class="current-standings-link">
+                <figure class="team-fig">
+                  <img
+                    src="https://media.api-sports.io/football/teams/85.png"
+                    alt="foot-logo"
+                  />
+                </figure>
+                <h4 class="team-h4">Paris Saint German</h4>
+                <p class="team-p">31</p>
+              </a>
+            </li>
+            <li class="team">
+              <a href="#" class="current-standings-link">
+                <figure class="team-fig">
+                  <img
+                    src="https://media.api-sports.io/football/teams/85.png"
+                    alt="foot-logo"
+                  />
+                </figure>
+                <h4 class="team-h4">Paris Saint German</h4>
+                <p class="team-p">31</p>
+              </a>
+            </li>
+            <li class="team">
+              <a href="#" class="current-standings-link">
+                <figure class="team-fig">
+                  <img
+                    src="https://media.api-sports.io/football/teams/85.png"
+                    alt="foot-logo"
+                  />
+                </figure>
+                <h4 class="team-h4">Paris Saint German</h4>
+                <p class="team-p">31</p>
+              </a>
+            </li>
+            <li class="team">
+              <a href="#" class="current-standings-link">
+                <figure class="team-fig">
+                  <img
+                    src="https://media.api-sports.io/football/teams/85.png"
+                    alt="foot-logo"
+                  />
+                </figure>
+                <h4 class="team-h4">Paris Saint German</h4>
+                <p class="team-p">31</p>
+              </a>
+            </li>
+          </ul>---->
+        </div>
+        <div class="content-stats">
+          <!----
+          <figure
+            class="highcharts-figure"
+            style="width: 400px; height: 400px;"
+          >
+            <div id="charts"></div>
+          </figure>
+          <div class="predicted-stats">
+            <div class="prediction-team-names">
+              <h4>Liverpool</h4>
+              <h4>Manchester United</h4>
+            </div>
+            <div class="team-fixture-stats">
+              <ul class="fixture-stats-list">
+                <li class="fixture-stats-item">
+                  <h6>Shots</h6>
+                  <div class="fixture-stats-representaion">
+                    <p>4</p>
+                    <div class="team-1-representation">
+                      <div
+                        class="line-stat-1"
+                        style="border-bottom: 1px solid #65dd9b; width: 80%;"
+                      ></div>
+                    </div>
+                    <div class="team-2-representation">
+                      <div
+                        class="line-stat-2"
+                        style="border-bottom: 1px solid #f65164; width: 20%;"
+                      ></div>
+                    </div>
+                    <p>5</p>
+                  </div>
+                </li>
+                <li class="fixture-stats-item">
+                  <h6>Shots</h6>
+                  <div class="fixture-stats-representaion">
+                    <p>4</p>
+                    <div class="team-1-representation">
+                      <div
+                        class="line-stat-1"
+                        style="border-bottom: 1px solid #65dd9b; width: 80%;"
+                      ></div>
+                    </div>
+                    <div class="team-2-representation">
+                      <div
+                        class="line-stat-2"
+                        style="border-bottom: 1px solid #f65164; width: 20%;"
+                      ></div>
+                    </div>
+                    <p>5</p>
+                  </div>
+                </li>
+                <li class="fixture-stats-item">
+                  <h6>Shots</h6>
+                  <div class="fixture-stats-representaion">
+                    <p>4</p>
+                    <div class="team-1-representation">
+                      <div
+                        class="line-stat-1"
+                        style="border-bottom: 1px solid #65dd9b; width: 80%;"
+                      ></div>
+                    </div>
+                    <div class="team-2-representation">
+                      <div
+                        class="line-stat-2"
+                        style="border-bottom: 1px solid #f65164; width: 20%;"
+                      ></div>
+                    </div>
+                    <p>5</p>
+                  </div>
+                </li>
+                <li class="fixture-stats-item">
+                  <h6>Shots</h6>
+                  <div class="fixture-stats-representaion">
+                    <p>4</p>
+                    <div class="team-1-representation">
+                      <div
+                        class="line-stat-1"
+                        style="border-bottom: 1px solid #65dd9b; width: 80%;"
+                      ></div>
+                    </div>
+                    <div class="team-2-representation">
+                      <div
+                        class="line-stat-2"
+                        style="border-bottom: 1px solid #f65164; width: 20%;"
+                      ></div>
+                    </div>
+                    <p>5</p>
+                  </div>
+                </li>
+                <li class="fixture-stats-item">
+                  <h6>Shots</h6>
+                  <div class="fixture-stats-representaion">
+                    <p>4</p>
+                    <div class="team-1-representation">
+                      <div
+                        class="line-stat-1"
+                        style="border-bottom: 1px solid #65dd9b; width: 80%;"
+                      ></div>
+                    </div>
+                    <div class="team-2-representation">
+                      <div
+                        class="line-stat-2"
+                        style="border-bottom: 1px solid #f65164; width: 20%;"
+                      ></div>
+                    </div>
+                    <p>5</p>
+                  </div>
+                </li>
+                <li class="fixture-stats-item">
+                  <h6>Shots</h6>
+                  <div class="fixture-stats-representaion">
+                    <p>4</p>
+                    <div class="team-1-representation">
+                      <div
+                        class="line-stat-1"
+                        style="border-bottom: 1px solid #65dd9b; width: 80%;"
+                      ></div>
+                    </div>
+                    <div class="team-2-representation">
+                      <div
+                        class="line-stat-2"
+                        style="border-bottom: 1px solid #f65164; width: 20%;"
+                      ></div>
+                    </div>
+                    <p>5</p>
+                  </div>
+                </li>
+              </ul>
+              <div class="winner">
+                <p>Predicted Winner: Manchester United</p>
+              </div>
+            </div>
+          </div>--->
+
+          <!-----
+          <div class="team-scores">
+            <img
+              src="https://media.api-sports.io/football/teams/33.png"
+              alt="foot-logo"
+            />
+            <p>3-1</p>
+            <img
+              src="https://media.api-sports.io/football/teams/46.png"
+              alt="foot-logo"
+            />
+          </div>
+          <h4 class="stats-title">Match Statistics</h4>
+          <div class="team-fixture-stats">
+            <ul class="fixture-stats-list">
+              <li class="fixture-stats-item">
+                <h6>Shots</h6>
+                <div class="fixture-stats-representaion">
+                  <p>4</p>
+                  <div class="team-1-representation">
+                    <div
+                      class="line-stat-1"
+                      style="border-bottom: 1px solid #65dd9b; width: 80%;"
+                    ></div>
+                  </div>
+                  <div class="team-2-representation">
+                    <div
+                      class="line-stat-2"
+                      style="border-bottom: 1px solid #f65164; width: 20%;"
+                    ></div>
+                  </div>
+                  <p>5</p>
+                </div>
+              </li>
+              <li class="fixture-stats-item">
+                <h6>Shots</h6>
+                <div class="fixture-stats-representaion">
+                  <p>4</p>
+                  <div class="team-1-representation">
+                    <div
+                      class="line-stat-1"
+                      style="border-bottom: 1px solid #65dd9b; width: 80%;"
+                    ></div>
+                  </div>
+                  <div class="team-2-representation">
+                    <div
+                      class="line-stat-2"
+                      style="border-bottom: 1px solid #f65164; width: 20%;"
+                    ></div>
+                  </div>
+                  <p>5</p>
+                </div>
+              </li>
+              <li class="fixture-stats-item">
+                <h6>Shots</h6>
+                <div class="fixture-stats-representaion">
+                  <p>4</p>
+                  <div class="team-1-representation">
+                    <div
+                      class="line-stat-1"
+                      style="border-bottom: 1px solid #65dd9b; width: 80%;"
+                    ></div>
+                  </div>
+                  <div class="team-2-representation">
+                    <div
+                      class="line-stat-2"
+                      style="border-bottom: 1px solid #f65164; width: 20%;"
+                    ></div>
+                  </div>
+                  <p>5</p>
+                </div>
+              </li>
+              <li class="fixture-stats-item">
+                <h6>Shots</h6>
+                <div class="fixture-stats-representaion">
+                  <p>4</p>
+                  <div class="team-1-representation">
+                    <div
+                      class="line-stat-1"
+                      style="border-bottom: 1px solid #65dd9b; width: 80%;"
+                    ></div>
+                  </div>
+                  <div class="team-2-representation">
+                    <div
+                      class="line-stat-2"
+                      style="border-bottom: 1px solid #f65164; width: 20%;"
+                    ></div>
+                  </div>
+                  <p>5</p>
+                </div>
+              </li>
+              <li class="fixture-stats-item">
+                <h6>Shots</h6>
+                <div class="fixture-stats-representaion">
+                  <p>4</p>
+                  <div class="team-1-representation">
+                    <div
+                      class="line-stat-1"
+                      style="border-bottom: 1px solid #65dd9b; width: 80%;"
+                    ></div>
+                  </div>
+                  <div class="team-2-representation">
+                    <div
+                      class="line-stat-2"
+                      style="border-bottom: 1px solid #f65164; width: 20%;"
+                    ></div>
+                  </div>
+                  <p>5</p>
+                </div>
+              </li>
+              <li class="fixture-stats-item">
+                <h6>Shots</h6>
+                <div class="fixture-stats-representaion">
+                  <p>4</p>
+                  <div class="team-1-representation">
+                    <div
+                      class="line-stat-1"
+                      style="border-bottom: 1px solid #65dd9b; width: 80%;"
+                    ></div>
+                  </div>
+                  <div class="team-2-representation">
+                    <div
+                      class="line-stat-2"
+                      style="border-bottom: 1px solid #f65164; width: 20%;"
+                    ></div>
+                  </div>
+                  <p>5</p>
+                </div>
+              </li>
+              <li class="fixture-stats-item">
+                <h6>Shots</h6>
+                <div class="fixture-stats-representaion">
+                  <p>4</p>
+                  <div class="team-1-representation">
+                    <div
+                      class="line-stat-1"
+                      style="border-bottom: 1px solid #65dd9b; width: 80%;"
+                    ></div>
+                  </div>
+                  <div class="team-2-representation">
+                    <div
+                      class="line-stat-2"
+                      style="border-bottom: 1px solid #f65164; width: 20%;"
+                    ></div>
+                  </div>
+                  <p>5</p>
+                </div>
+              </li>
+              <li class="fixture-stats-item">
+                <h6>Shots</h6>
+                <div class="fixture-stats-representaion">
+                  <p>4</p>
+                  <div class="team-1-representation">
+                    <div
+                      class="line-stat-1"
+                      style="border-bottom: 1px solid #65dd9b; width: 80%;"
+                    ></div>
+                  </div>
+                  <div class="team-2-representation">
+                    <div
+                      class="line-stat-2"
+                      style="border-bottom: 1px solid #f65164; width: 20%;"
+                    ></div>
+                  </div>
+                  <p>5</p>
+                </div>
+              </li>
+              <li class="fixture-stats-item">
+                <h6>Shots</h6>
+                <div class="fixture-stats-representaion">
+                  <p>4</p>
+                  <div class="team-1-representation">
+                    <div
+                      class="line-stat-1"
+                      style="border-bottom: 1px solid #65dd9b; width: 80%;"
+                    ></div>
+                  </div>
+                  <div class="team-2-representation">
+                    <div
+                      class="line-stat-2"
+                      style="border-bottom: 1px solid #f65164; width: 20%;"
+                    ></div>
+                  </div>
+                  <p>5</p>
+                </div>
+              </li>
+              <li class="fixture-stats-item">
+                <h6>Shots</h6>
+                <div class="fixture-stats-representaion">
+                  <p>4</p>
+                  <div class="team-1-representation">
+                    <div
+                      class="line-stat-1"
+                      style="border-bottom: 1px solid #65dd9b; width: 80%;"
+                    ></div>
+                  </div>
+                  <div class="team-2-representation">
+                    <div
+                      class="line-stat-2"
+                      style="border-bottom: 1px solid #f65164; width: 20%;"
+                    ></div>
+                  </div>
+                  <p>5</p>
+                </div>
+              </li>
+              <li class="fixture-stats-item">
+                <h6>Shots</h6>
+                <div class="fixture-stats-representaion">
+                  <p>4</p>
+                  <div class="team-1-representation">
+                    <div
+                      class="line-stat-1"
+                      style="border-bottom: 1px solid #65dd9b; width: 80%;"
+                    ></div>
+                  </div>
+                  <div class="team-2-representation">
+                    <div
+                      class="line-stat-2"
+                      style="border-bottom: 1px solid #f65164; width: 20%;"
+                    ></div>
+                  </div>
+                  <p>5</p>
+                </div>
+              </li>
+              <li class="fixture-stats-item">
+                <h6>Shots</h6>
+                <div class="fixture-stats-representaion">
+                  <p>4</p>
+                  <div class="team-1-representation">
+                    <div
+                      class="line-stat-1"
+                      style="border-bottom: 1px solid #65dd9b; width: 80%;"
+                    ></div>
+                  </div>
+                  <div class="team-2-representation">
+                    <div
+                      class="line-stat-2"
+                      style="border-bottom: 1px solid #f65164; width: 20%;"
+                    ></div>
+                  </div>
+                  <p>5</p>
+                </div>
+              </li>
+              <li class="fixture-stats-item">
+                <h6>Shots</h6>
+                <div class="fixture-stats-representaion">
+                  <p>4</p>
+                  <div class="team-1-representation">
+                    <div
+                      class="line-stat-1"
+                      style="border-bottom: 1px solid #65dd9b; width: 80%;"
+                    ></div>
+                  </div>
+                  <div class="team-2-representation">
+                    <div
+                      class="line-stat-2"
+                      style="border-bottom: 1px solid #f65164; width: 20%;"
+                    ></div>
+                  </div>
+                  <p>5</p>
+                </div>
+              </li>
+              <li class="fixture-stats-item">
+                <h6>Shots</h6>
+                <div class="fixture-stats-representaion">
+                  <p>4</p>
+                  <div class="team-1-representation">
+                    <div
+                      class="line-stat-1"
+                      style="border-bottom: 1px solid #65dd9b; width: 80%;"
+                    ></div>
+                  </div>
+                  <div class="team-2-representation">
+                    <div
+                      class="line-stat-2"
+                      style="border-bottom: 1px solid #f65164; width: 20%;"
+                    ></div>
+                  </div>
+                  <p>5</p>
+                </div>
+              </li>
+              <li class="fixture-stats-item">
+                <h6>Shots</h6>
+                <div class="fixture-stats-representaion">
+                  <p>4</p>
+                  <div class="team-1-representation">
+                    <div
+                      class="line-stat-1"
+                      style="border-bottom: 1px solid #65dd9b; width: 80%;"
+                    ></div>
+                  </div>
+                  <div class="team-2-representation">
+                    <div
+                      class="line-stat-2"
+                      style="border-bottom: 1px solid #f65164; width: 20%;"
+                    ></div>
+                  </div>
+                  <p>5</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+          ----->
+
+          <!---
+          <figure
+          class="highcharts-figure"
+          style="width: 400px; height: 400px;"
+        >
+          <div id="charts"></div>
+        </figure>
+        <h4 class="players">Players</h4>
+
+          <table>
+            <tr>
+              <th>Name</th>
+              <th>Position</th>
+              <th>Goals </th>
+            </tr>
+            <tr>
+              <td class="first-col">Lionel Messi</td>
+              <td class="second-col">Right Winger</td>
+              <td class="third-col">5</td>
+            </tr>
+            <tr>
+              <td class="first-col">Lionel Messi</td>
+              <td class="second-col">Right Winger</td>
+              <td class="third-col">5</td>
+            </tr>
+            <tr>
+              <td class="first-col">Lionel Messi</td>
+              <td class="second-col">Right Winger</td>
+              <td class="third-col">5</td>
+            </tr>
+            <tr>
+              <td class="first-col">Lionel Messi</td>
+              <td class="second-col">Right Winger</td>
+              <td class="third-col">5</td>
+            </tr>
+            <tr>
+              <td class="first-col">Lionel Messi</td>
+              <td class="second-col">Right Winger</td>
+              <td class="third-col">5</td>
+            </tr>
+            <tr>
+              <td class="first-col">Lionel Messi</td>
+              <td class="second-col">Right Winger</td>
+              <td class="third-col">5</td>
+            </tr>
+            <tr>
+              <td class="first-col">Lionel Messi</td>
+              <td class="second-col">Right Winger</td>
+              <td class="third-col">5</td>
+            </tr>
+            <tr>
+              <td class="first-col">Lionel Messi</td>
+              <td class="second-col">Right Winger</td>
+              <td class="third-col">5</td>
+            </tr>
+            <tr>
+              <td class="first-col">Lionel Messi</td>
+              <td class="second-col">Right Winger</td>
+              <td class="third-col">5</td>
+            </tr>
+            <tr>
+              <td class="first-col">Lionel Messi</td>
+              <td class="second-col">Right Winger</td>
+              <td class="third-col">5</td>
+            </tr>
+            <tr>
+              <td class="first-col">Lionel Messi</td>
+              <td class="second-col">Right Winger</td>
+              <td class="third-col">5</td>
+            </tr>
+            
+            
+           </table>---->
+        </div>
+        <div class="content-fixtures">
+          <!---
+          <div class="content-fixtures-heading">
+            <h4>Fixtures</h4>
+            <form><input type="date" /></form>
+          </div>
+          <ul class="content-fixtures-list">
+            <li>
+              <a href="#" class="fixture-teams">
+                <div class="teams-1-2">
+                  <div class="team-1">
+                    <h4 class="fixture-team-h4">Manchester United</h4>
+                    <p class="fixture-team-p" style="color: #65dd9b;">1</p>
+                  </div>
+                  <div class="team-2">
+                    <h4 class="fixture-team-h4">Leicester City</h4>
+                    <p class="fixture-team-p" style="color: #f65164;">3</p>
+                  </div>
+                </div>
+                <p class="fixture-timing">27 May <br />19:00</p>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="fixture-teams">
+                <div class="teams-1-2">
+                  <div class="team-1">
+                    <h4 class="fixture-team-h4">Manchester United</h4>
+                    <p class="fixture-team-p" style="color: #65dd9b;">1</p>
+                  </div>
+                  <div class="team-2">
+                    <h4 class="fixture-team-h4">Leicester City</h4>
+                    <p class="fixture-team-p" style="color: #f65164;">3</p>
+                  </div>
+                </div>
+                <p class="fixture-timing">27 May <br />19:00</p>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="fixture-teams">
+                <div class="teams-1-2">
+                  <div class="team-1">
+                    <h4 class="fixture-team-h4">Manchester United</h4>
+                    <p class="fixture-team-p" style="color: #65dd9b;">1</p>
+                  </div>
+                  <div class="team-2">
+                    <h4 class="fixture-team-h4">Leicester City</h4>
+                    <p class="fixture-team-p" style="color: #f65164;">3</p>
+                  </div>
+                </div>
+                <p class="fixture-timing">27 May <br />19:00</p>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="fixture-teams">
+                <div class="teams-1-2">
+                  <div class="team-1">
+                    <h4 class="fixture-team-h4">Manchester United</h4>
+                    <p class="fixture-team-p" style="color: #65dd9b;">1</p>
+                  </div>
+                  <div class="team-2">
+                    <h4 class="fixture-team-h4">Leicester City</h4>
+                    <p class="fixture-team-p" style="color: #f65164;">3</p>
+                  </div>
+                </div>
+                <p class="fixture-timing">27 May <br />19:00</p>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="fixture-teams">
+                <div class="teams-1-2">
+                  <div class="team-1">
+                    <h4 class="fixture-team-h4">Manchester United</h4>
+                    <p class="fixture-team-p" style="color: #65dd9b;">1</p>
+                  </div>
+                  <div class="team-2">
+                    <h4 class="fixture-team-h4">Leicester City</h4>
+                    <p class="fixture-team-p" style="color: #f65164;">3</p>
+                  </div>
+                </div>
+                <p class="fixture-timing">27 May <br />19:00</p>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="fixture-teams">
+                <div class="teams-1-2">
+                  <div class="team-1">
+                    <h4 class="fixture-team-h4">Manchester United</h4>
+                    <p class="fixture-team-p" style="color: #65dd9b;">1</p>
+                  </div>
+                  <div class="team-2">
+                    <h4 class="fixture-team-h4">Leicester City</h4>
+                    <p class="fixture-team-p" style="color: #f65164;">3</p>
+                  </div>
+                </div>
+                <p class="fixture-timing">27 May <br />19:00</p>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="fixture-teams">
+                <div class="teams-1-2">
+                  <div class="team-1">
+                    <h4 class="fixture-team-h4">Manchester United</h4>
+                    <p class="fixture-team-p" style="color: #65dd9b;">1</p>
+                  </div>
+                  <div class="team-2">
+                    <h4 class="fixture-team-h4">Leicester City</h4>
+                    <p class="fixture-team-p" style="color: #f65164;">3</p>
+                  </div>
+                </div>
+                <p class="fixture-timing">27 May <br />19:00</p>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="fixture-teams">
+                <div class="teams-1-2">
+                  <div class="team-1">
+                    <h4 class="fixture-team-h4">Manchester United</h4>
+                    <p class="fixture-team-p" style="color: #65dd9b;">1</p>
+                  </div>
+                  <div class="team-2">
+                    <h4 class="fixture-team-h4">Leicester City</h4>
+                    <p class="fixture-team-p" style="color: #f65164;">3</p>
+                  </div>
+                </div>
+                <p class="fixture-timing">27 May <br />19:00</p>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="fixture-teams">
+                <div class="teams-1-2">
+                  <div class="team-1">
+                    <h4 class="fixture-team-h4">Manchester United</h4>
+                    <p class="fixture-team-p" style="color: #65dd9b;">1</p>
+                  </div>
+                  <div class="team-2">
+                    <h4 class="fixture-team-h4">Leicester City</h4>
+                    <p class="fixture-team-p" style="color: #f65164;">3</p>
+                  </div>
+                </div>
+                <p class="fixture-timing">27 May <br />19:00</p>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="fixture-teams">
+                <div class="teams-1-2">
+                  <div class="team-1">
+                    <h4 class="fixture-team-h4">Manchester United</h4>
+                    <p class="fixture-team-p" style="color: #65dd9b;">1</p>
+                  </div>
+                  <div class="team-2">
+                    <h4 class="fixture-team-h4">Leicester City</h4>
+                    <p class="fixture-team-p" style="color: #f65164;">3</p>
+                  </div>
+                </div>
+                <p class="fixture-timing">27 May <br />19:00</p>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="fixture-teams">
+                <div class="teams-1-2">
+                  <div class="team-1">
+                    <h4 class="fixture-team-h4">Manchester United</h4>
+                    <p class="fixture-team-p" style="color: #65dd9b;">1</p>
+                  </div>
+                  <div class="team-2">
+                    <h4 class="fixture-team-h4">Leicester City</h4>
+                    <p class="fixture-team-p" style="color: #f65164;">3</p>
+                  </div>
+                </div>
+                <p class="fixture-timing">27 May <br />19:00</p>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="fixture-teams">
+                <div class="teams-1-2">
+                  <div class="team-1">
+                    <h4 class="fixture-team-h4">Manchester United</h4>
+                    <p class="fixture-team-p" style="color: #65dd9b;">1</p>
+                  </div>
+                  <div class="team-2">
+                    <h4 class="fixture-team-h4">Leicester City</h4>
+                    <p class="fixture-team-p" style="color: #f65164;">3</p>
+                  </div>
+                </div>
+                <p class="fixture-timing">27 May <br />19:00</p>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="fixture-teams">
+                <div class="teams-1-2">
+                  <div class="team-1">
+                    <h4 class="fixture-team-h4">Manchester United</h4>
+                    <p class="fixture-team-p" style="color: #65dd9b;">1</p>
+                  </div>
+                  <div class="team-2">
+                    <h4 class="fixture-team-h4">Leicester City</h4>
+                    <p class="fixture-team-p" style="color: #f65164;">3</p>
+                  </div>
+                </div>
+                <p class="fixture-timing">27 May <br />19:00</p>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="fixture-teams">
+                <div class="teams-1-2">
+                  <div class="team-1">
+                    <h4 class="fixture-team-h4">Manchester United</h4>
+                    <p class="fixture-team-p" style="color: #65dd9b;">1</p>
+                  </div>
+                  <div class="team-2">
+                    <h4 class="fixture-team-h4">Leicester City</h4>
+                    <p class="fixture-team-p" style="color: #f65164;">3</p>
+                  </div>
+                </div>
+                <p class="fixture-timing">27 May <br />19:00</p>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="fixture-teams">
+                <div class="teams-1-2">
+                  <div class="team-1">
+                    <h4 class="fixture-team-h4">Manchester United</h4>
+                    <p class="fixture-team-p" style="color: #65dd9b;">1</p>
+                  </div>
+                  <div class="team-2">
+                    <h4 class="fixture-team-h4">Leicester City</h4>
+                    <p class="fixture-team-p" style="color: #f65164;">3</p>
+                  </div>
+                </div>
+                <p class="fixture-timing">27 May <br />19:00</p>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="fixture-teams">
+                <div class="teams-1-2">
+                  <div class="team-1">
+                    <h4 class="fixture-team-h4">Manchester United</h4>
+                    <p class="fixture-team-p" style="color: #65dd9b;">1</p>
+                  </div>
+                  <div class="team-2">
+                    <h4 class="fixture-team-h4">Leicester City</h4>
+                    <p class="fixture-team-p" style="color: #f65164;">3</p>
+                  </div>
+                </div>
+                <p class="fixture-timing">27 May <br />19:00</p>
+              </a>
+            </li>
+          </ul>
+          <div class="fixtures-pag">
+            <button class="pag-prev">
+              <svg class="icon">
+                <use href="img/icons.svg#icon-triangle-left"></use>
+              </svg>
+              <span>Page 1</span>
+            </button>
+            <button class="pag-next">
+              <span>Page 3</span>
+              <svg class="icon">
+                <use href="img/icons.svg#icon-triangle-right"></use>
+              </svg>
+            </button>
+          </div>--->
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
