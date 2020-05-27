@@ -385,3 +385,22 @@ tr:nth-child(odd) {
   width: 10px;
   height: 10px;
 }
+
+.loader {
+  margin: 220px auto;
+  text-align: center;
+}
+.loader-icon {
+  width: 50px;
+  height: 50px;
+  fill:#fff;
+  animation: rotate 1.5s infinite linear;
+}
+@keyframes rotate {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

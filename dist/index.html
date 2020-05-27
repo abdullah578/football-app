@@ -7,309 +7,13 @@
       href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;1,300;1,400&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" type="text/css" href="css/charts.css" />
     <link rel="stylesheet" type="text/css" href="css/style.css" />
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
     <script src="https://code.highcharts.com/highcharts.js"></script>
     <script src="https://code.highcharts.com/highcharts-more.js"></script>
     <script src="https://code.highcharts.com/modules/exporting.js"></script>
     <script src="https://code.highcharts.com/modules/export-data.js"></script>
     <script src="https://code.highcharts.com/modules/accessibility.js"></script>
-    <script type="text/javascript">
-      window.onload = function () {
-        /*
-        Highcharts.theme = {
-          colors: [
-            "#2b908f",
-            "#90ee7e",
-            "#f45b5b",
-            "#7798BF",
-            "#aaeeee",
-            "#ff0066",
-            "#eeaaee",
-            "#55BF3B",
-            "#DF5353",
-            "#7798BF",
-            "#aaeeee",
-          ],
-          chart: {
-            backgroundColor: {
-              linearGradient: { x1: 0, y1: 0, x2: 1, y2: 1 },
-              stops: [
-                [0, "#2a2a2b"],
-                [1, "#3e3e40"],
-              ],
-            },
-            style: {
-              fontFamily: "'Unica One', sans-serif",
-            },
-            plotBorderColor: "#606063",
-          },
-          title: {
-            style: {
-              color: "#E0E0E3",
-              textTransform: "uppercase",
-              fontSize: "20px",
-            },
-          },
-          subtitle: {
-            style: {
-              color: "#E0E0E3",
-              textTransform: "uppercase",
-            },
-          },
-          xAxis: {
-            gridLineColor: "#707073",
-            labels: {
-              style: {
-                color: "#E0E0E3",
-              },
-            },
-            lineColor: "#707073",
-            minorGridLineColor: "#505053",
-            tickColor: "#707073",
-            title: {
-              style: {
-                color: "#A0A0A3",
-              },
-            },
-          },
-          yAxis: {
-            gridLineColor: "#707073",
-            labels: {
-              style: {
-                color: "#E0E0E3",
-              },
-            },
-            lineColor: "#707073",
-            minorGridLineColor: "#505053",
-            tickColor: "#707073",
-            tickWidth: 1,
-            title: {
-              style: {
-                color: "#A0A0A3",
-              },
-            },
-          },
-          tooltip: {
-            backgroundColor: "rgba(0, 0, 0, 0.85)",
-            style: {
-              color: "#F0F0F0",
-            },
-          },
-          plotOptions: {
-            series: {
-              dataLabels: {
-                color: "#F0F0F3",
-                style: {
-                  fontSize: "13px",
-                },
-              },
-              marker: {
-                lineColor: "#333",
-              },
-            },
-            boxplot: {
-              fillColor: "#505053",
-            },
-            candlestick: {
-              lineColor: "white",
-            },
-            errorbar: {
-              color: "white",
-            },
-          },
-          legend: {
-            backgroundColor: "rgba(0, 0, 0, 0.5)",
-            itemStyle: {
-              color: "#E0E0E3",
-            },
-            itemHoverStyle: {
-              color: "#FFF",
-            },
-            itemHiddenStyle: {
-              color: "#606063",
-            },
-            title: {
-              style: {
-                color: "#C0C0C0",
-              },
-            },
-          },
-          credits: {
-            style: {
-              color: "#666",
-            },
-          },
-          labels: {
-            style: {
-              color: "#707073",
-            },
-          },
-          drilldown: {
-            activeAxisLabelStyle: {
-              color: "#F0F0F3",
-            },
-            activeDataLabelStyle: {
-              color: "#F0F0F3",
-            },
-          },
-          navigation: {
-            buttonOptions: {
-              symbolStroke: "#DDDDDD",
-              theme: {
-                fill: "#505053",
-              },
-            },
-          },
-          // scroll charts
-          rangeSelector: {
-            buttonTheme: {
-              fill: "#505053",
-              stroke: "#000000",
-              style: {
-                color: "#CCC",
-              },
-              states: {
-                hover: {
-                  fill: "#707073",
-                  stroke: "#000000",
-                  style: {
-                    color: "white",
-                  },
-                },
-                select: {
-                  fill: "#000003",
-                  stroke: "#000000",
-                  style: {
-                    color: "white",
-                  },
-                },
-              },
-            },
-            inputBoxBorderColor: "#505053",
-            inputStyle: {
-              backgroundColor: "#333",
-              color: "silver",
-            },
-            labelStyle: {
-              color: "silver",
-            },
-          },
-          navigator: {
-            handles: {
-              backgroundColor: "#666",
-              borderColor: "#AAA",
-            },
-            outlineColor: "#CCC",
-            maskFill: "rgba(255,255,255,0.1)",
-            series: {
-              color: "#7798BF",
-              lineColor: "#A6C7ED",
-            },
-            xAxis: {
-              gridLineColor: "#505053",
-            },
-          },
-          scrollbar: {
-            barBackgroundColor: "#808083",
-            barBorderColor: "#808083",
-            buttonArrowColor: "#CCC",
-            buttonBackgroundColor: "#606063",
-            buttonBorderColor: "#606063",
-            rifleColor: "#FFF",
-            trackBackgroundColor: "#404043",
-            trackBorderColor: "#404043",
-          },
-        };
-        Highcharts.setOptions(Highcharts.theme);
-        Highcharts.chart("charts", {
-          chart: {
-            polar: true,
-            type: "line",
-          },
 
-          accessibility: {
-            description:
-              "A spiderweb chart compares the allocated budget against actual spending within an organization. The spider chart has six spokes. Each spoke represents one of the 6 departments within the organization: sales, marketing, development, customer support, information technology and administration. The chart is interactive, and each data point is displayed upon hovering. The chart clearly shows that 4 of the 6 departments have overspent their budget with Marketing responsible for the greatest overspend of $20,000. The allocated budget and actual spending data points for each department are as follows: Sales. Budget equals $43,000; spending equals $50,000. Marketing. Budget equals $19,000; spending equals $39,000. Development. Budget equals $60,000; spending equals $42,000. Customer support. Budget equals $35,000; spending equals $31,000. Information technology. Budget equals $17,000; spending equals $26,000. Administration. Budget equals $10,000; spending equals $14,000.",
-          },
-
-          title: {
-            text: "Budget vs spending",
-            x: -80,
-          },
-
-          pane: {
-            size: "80%",
-          },
-
-          xAxis: {
-            categories: [
-              "Goals For",
-              "Goals Against",
-              "Losses",
-              "Draws",
-              "Wins",
-              "Goals Avg",
-            ],
-            tickmarkPlacement: "on",
-            lineWidth: 0,
-          },
-
-          yAxis: {
-            gridLineInterpolation: "polygon",
-            lineWidth: 0,
-            min: 0,
-          },
-
-          tooltip: {
-            shared: true,
-            pointFormat:
-              '<span style="color:{series.color}">{series.name}: <b>${point.y:,.0f}</b><br/>',
-          },
-
-          legend: {
-            align: "right",
-            verticalAlign: "middle",
-            layout: "vertical",
-          },
-
-          series: [
-            {
-              name: "Liverpool",
-              data: [4, 6, 7, 8, 1, 5],
-              pointPlacement: "on",
-            },
-            {
-              name: "Manchester United",
-              data: [2, 5, 7, 9, 3, 1],
-              pointPlacement: "on",
-            },
-          ],
-
-          responsive: {
-            rules: [
-              {
-                condition: {
-                  maxWidth: 500,
-                },
-                chartOptions: {
-                  legend: {
-                    align: "center",
-                    verticalAlign: "bottom",
-                    layout: "horizontal",
-                  },
-                  pane: {
-                    size: "70%",
-                  },
-                },
-              },
-            ],
-          },
-        });*/
-        
-      };
-    </script>
     <title>Document</title>
   </head>
   <body>
@@ -325,6 +29,7 @@
       </header>
       <div class="content">
         <div class="content-table">
+          <!----
           <h4 class="content-table-heading">Current Standings</h4>
           <ul class="current-standings">
             <li class="team">
@@ -567,10 +272,10 @@
                 <p class="team-p">31</p>
               </a>
             </li>
-          </ul>
+          </ul>---->
         </div>
         <div class="content-stats">
-          
+          <!----
           <figure
             class="highcharts-figure"
             style="width: 400px; height: 400px;"
@@ -703,9 +408,7 @@
                 <p>Predicted Winner: Manchester United</p>
               </div>
             </div>
-          </div>
-
-
+          </div>--->
 
           <!-----
           <div class="team-scores">
@@ -1010,8 +713,83 @@
             </ul>
           </div>
           ----->
+
+          <!---
+          <figure
+          class="highcharts-figure"
+          style="width: 400px; height: 400px;"
+        >
+          <div id="charts"></div>
+        </figure>
+        <h4 class="players">Players</h4>
+
+          <table>
+            <tr>
+              <th>Name</th>
+              <th>Position</th>
+              <th>Goals </th>
+            </tr>
+            <tr>
+              <td class="first-col">Lionel Messi</td>
+              <td class="second-col">Right Winger</td>
+              <td class="third-col">5</td>
+            </tr>
+            <tr>
+              <td class="first-col">Lionel Messi</td>
+              <td class="second-col">Right Winger</td>
+              <td class="third-col">5</td>
+            </tr>
+            <tr>
+              <td class="first-col">Lionel Messi</td>
+              <td class="second-col">Right Winger</td>
+              <td class="third-col">5</td>
+            </tr>
+            <tr>
+              <td class="first-col">Lionel Messi</td>
+              <td class="second-col">Right Winger</td>
+              <td class="third-col">5</td>
+            </tr>
+            <tr>
+              <td class="first-col">Lionel Messi</td>
+              <td class="second-col">Right Winger</td>
+              <td class="third-col">5</td>
+            </tr>
+            <tr>
+              <td class="first-col">Lionel Messi</td>
+              <td class="second-col">Right Winger</td>
+              <td class="third-col">5</td>
+            </tr>
+            <tr>
+              <td class="first-col">Lionel Messi</td>
+              <td class="second-col">Right Winger</td>
+              <td class="third-col">5</td>
+            </tr>
+            <tr>
+              <td class="first-col">Lionel Messi</td>
+              <td class="second-col">Right Winger</td>
+              <td class="third-col">5</td>
+            </tr>
+            <tr>
+              <td class="first-col">Lionel Messi</td>
+              <td class="second-col">Right Winger</td>
+              <td class="third-col">5</td>
+            </tr>
+            <tr>
+              <td class="first-col">Lionel Messi</td>
+              <td class="second-col">Right Winger</td>
+              <td class="third-col">5</td>
+            </tr>
+            <tr>
+              <td class="first-col">Lionel Messi</td>
+              <td class="second-col">Right Winger</td>
+              <td class="third-col">5</td>
+            </tr>
+            
+            
+           </table>---->
         </div>
         <div class="content-fixtures">
+          <!---
           <div class="content-fixtures-heading">
             <h4>Fixtures</h4>
             <form><input type="date" /></form>
@@ -1257,9 +1035,9 @@
                 <p class="fixture-timing">27 May <br />19:00</p>
               </a>
             </li>
-          </ul>
+          </ul>--->
           <div class="fixtures-pag">
-            <button class="pag-prev">
+            <!-- <button class="pag-prev">
               <svg class="icon">
                 <use href="img/icons.svg#icon-triangle-left"></use>
               </svg>
@@ -1270,7 +1048,8 @@
               <svg class="icon">
                 <use href="img/icons.svg#icon-triangle-right"></use>
               </svg>
-            </button>
+            </button>--->
+          </div>
         </div>
       </div>
     </div>
