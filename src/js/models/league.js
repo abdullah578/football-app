@@ -1,5 +1,6 @@
 import axios from "axios";
 import { parseDate, timeDiffHour } from "../utils/parseQuery";
+import { configuration } from "./api";
 
 let leagueCache, standingsCache, fixturesCache;
 class League {
@@ -31,7 +32,11 @@ class League {
       headers: { "X-RapidAPI-Key": "8cbbd5e240931706dc6569e5a6bd597b" },
     };
     try {
-      const response = await axios(config);
+      const response = await axios(
+        configuration(
+          `https://v2.api-football.com/leagues/search/${this.query}`
+        )
+      );
 
       let leagueObj = response.data.api.leagues;
       if (country)
@@ -65,13 +70,12 @@ class League {
     return false;
   }
   async fetchStandingsFromAPI() {
-    const config = {
-      method: "get",
-      url: `https://v2.api-football.com/leagueTable/${this.current_league.id}`,
-      headers: { "X-RapidAPI-Key": "8cbbd5e240931706dc6569e5a6bd597b" },
-    };
     try {
-      const response = await axios(config);
+      const response = await axios(
+        configuration(
+          `https://v2.api-football.com/leagueTable/${this.current_league.id}`
+        )
+      );
       this.current_standings = response.data.api.standings[0].map((curr) => ({
         id: curr.team_id,
         logo: curr.logo,
@@ -88,19 +92,20 @@ class League {
     }
   }
   async fetchFixturesFromAPI() {
-    const config = {
-      method: "get",
-      url: `https://v2.api-football.com/fixtures/league/${this.current_league.id}`,
-      headers: { "X-RapidAPI-Key": "8cbbd5e240931706dc6569e5a6bd597b" },
-    };
     try {
-      const response = await axios(config);
+      const response = await axios(
+        configuration(
+          `https://v2.api-football.com/fixtures/league/${this.current_league.id}`
+        )
+      );
       this.current_fixtures = response.data.api.fixtures.map((curr) => ({
         id: curr.fixture_id,
         status: curr.status,
         date: curr.event_date,
         team1: curr.homeTeam.team_name,
         team2: curr.awayTeam.team_name,
+        team1_id: curr.homeTeam.team_id,
+        team2_id: curr.awayTeam.team_id,
         goals1: curr.goalsHomeTeam,
         goals2: curr.goalsAwayTeam,
       }));

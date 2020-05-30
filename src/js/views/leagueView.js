@@ -4,9 +4,9 @@ export const fetchUserInput = () => {
   return elements.form_input.value;
 };
 
-const displayStanding = ({ id, logo, name, points }) => {
+const displayStanding = ({ id, logo, name, points }, length) => {
   const html = `
-  <li class="team">
+  <li class="team" style="${length<=10 ? "flex:0":""}">
     <a href="#t${id}" class="current-standings-link">
       <figure class="team-fig">
         <img
@@ -35,7 +35,7 @@ export const displayStandings = (standingArr) => {
 
   `;
   standingArr.forEach((curr) => {
-    displayStanding(curr);
+    displayStanding(curr, standingArr.length);
   });
 };
 
@@ -139,7 +139,8 @@ export const displayFixtures = (
     elements.fixtureContent.innerHTML = "";
     return null;
   }
-  fixturesArr=fixturesArr.reverse();
+
+  fixturesArr = [...fixturesArr].reverse();
 
   elements.fixtureContent.innerHTML = `
   <div class="content-fixtures-heading">
@@ -151,7 +152,6 @@ export const displayFixtures = (
 
   const start = (currentPage - 1) * numPerPage;
   const end = start + numPerPage;
-  console.log(fixturesArr);
   fixturesArr.slice(start, end).forEach((curr) => {
     displayFixture(curr);
   });

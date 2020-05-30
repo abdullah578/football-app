@@ -39,8 +39,6 @@ export const parseDate = (date) => {
   return `${date.getDate()}-${date.getMonth() + 1}-${date.getFullYear()}`;
 };
 export const timeDiffHour = (dt1, dt2) => {
-  console.log(typeof dt1);
-  console.log(typeof dt2);
   var diff = (dt2.getTime() - dt1.getTime()) / 1000;
   diff /= 60 * 60;
   return Math.abs(Math.round(diff));

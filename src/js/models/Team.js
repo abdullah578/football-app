@@ -1,5 +1,6 @@
 import axios from "axios";
-import { parseDate, timeDiffHour } from "../utils/parseQuery";
+import { timeDiffHour } from "../utils/parseQuery";
+import { configuration } from "./api";
 let teamCache;
 class Team {
   constructor(id) {
@@ -9,21 +10,21 @@ class Team {
   searchDataCache() {
     if (teamCache[this.id]) {
       const now = new Date();
-      if (timeDiffHour(now, new Date(teamCache[this.id].dateCreated))) {
+      if (timeDiffHour(now, new Date(teamCache[this.id].dateCreated)) <= 1) {
         this.chartData = teamCache[this.id].data;
+        console.log("T cache hit");
         return true;
       } else return false;
     }
     return false;
   }
   async fetchTeamStatsFromAPI(league_id) {
-    const config = {
-      method: "get",
-      url: `https://v2.api-football.com/statistics/${league_id}/${this.id}`,
-      headers: { "X-RapidAPI-Key": "8cbbd5e240931706dc6569e5a6bd597b" },
-    };
     try {
-      const response = await axios(config);
+      const response = await axios(
+        configuration(
+          `https://v2.api-football.com/statistics/${league_id}/${this.id}`
+        )
+      );
       const stats = response.data.api.statistics;
       this.chartData = [
         {

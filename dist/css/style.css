@@ -118,6 +118,9 @@ header {
   transition: background-color 0.2s;
   flex: 1;
 }
+.team-active {
+  background-color: #26303a;
+}
 .team:active,
 .team:hover {
   background-color: #26303a;
@@ -156,6 +159,11 @@ header {
   padding: 40px;
   display: flex;
   flex-direction: column;
+}
+.league-logo img {
+  height: 100%;
+  width: auto;
+  margin-left: 70px;
 }
 .highcharts-figure {
   margin-left: 50px;
@@ -265,6 +273,9 @@ td {
 }
 .third-col {
   color: #65dd9b;
+}
+.fourth-col {
+  color: #9b59b6;
 }
 tr:nth-child(even) {
   background-color: #2d3844;
