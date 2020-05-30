@@ -1,11 +1,13 @@
 import * as chart from "./utils/charts";
 import { elements, displaySpinner } from "./views/Base";
-import League from "./models/league";
+import League from "./models/League";
+import Team from "./models/Team";
 import {
   fetchUserInput,
   displayStandings,
   displayFixtures,
 } from "./views/leagueView";
+import { displayTeamStats } from "./views/teamView";
 import { parseQuery, parseInput } from "./utils/parseQuery";
 const state = {};
 const leagueController = async () => {
@@ -13,7 +15,7 @@ const leagueController = async () => {
   const query = fetchUserInput();
   //parse the input given by the user
   const parsedQuery = parseQuery[parseInput(query)] || {
-    name: query,
+    name: parseInput(query),
     country: "",
   };
   // Create a league object and store in state
@@ -30,13 +32,22 @@ const leagueController = async () => {
     await state.league.fetchStandingsFromAPI();
     console.log("S cache miss");
   }
+
   displayStandings(state.league.current_standings);
   if (!state.league.searchDataCache("fixture")) {
     await state.league.fetchFixturesFromAPI();
     console.log("F cache miss");
   }
-  displayFixtures(state.league.current_fixtures.reverse());
+  displayFixtures(state.league.current_fixtures);
   console.log(state.league);
+};
+const teamController = async (id) => {
+  state.team = new Team(id);
+  if (!state.team.searchDataCache()) {
+    await state.team.fetchTeamStatsFromAPI(state.league.current_league.id);
+    console.log("T cache miss");
+  }
+  displayTeamStats(state.team);
 };
 
 elements.search.addEventListener("click", leagueController);
@@ -51,4 +62,12 @@ elements.pagination.addEventListener("click", (e) => {
     const page = parseInt(e.target.closest(".pag").dataset.to);
     displayFixtures(state.league.current_fixtures, page);
   }
+});
+["hashchange", "load"].forEach((event) => {
+  window.addEventListener(event, () => {
+    const hash_id = window.location.hash.replace("#", "");
+    if (hash_id[0] === "t" && state.league) {
+      teamController(hash_id.slice(1));
+    }
+  });
 });

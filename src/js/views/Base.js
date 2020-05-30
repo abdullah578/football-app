@@ -5,6 +5,7 @@ export const elements = {
   standings: document.querySelector(".content-table"),
   fixtures: document.querySelector(".content-fixtures"),
   pagination: document.querySelector(".fixtures-pag"),
+  stats: document.querySelector(".content-stats"),
   fixtureContent: document.querySelector(".fixtures-div"),
 };
 

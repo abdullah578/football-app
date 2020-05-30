@@ -139,6 +139,7 @@ export const displayFixtures = (
     elements.fixtureContent.innerHTML = "";
     return null;
   }
+  fixturesArr=fixturesArr.reverse();
 
   elements.fixtureContent.innerHTML = `
   <div class="content-fixtures-heading">

@@ -290,7 +290,7 @@ export const radarChart = function () {
   });
 };
 
-export const barChart = function () {
+export const barChart = function (teamName,teamStats) {
   Highcharts.theme = {
     colors: [
       "#2b908f",
@@ -519,7 +519,7 @@ export const barChart = function () {
     yAxis: {
       min: 0,
       title: {
-        text: "Parsi Saint German",
+        text: teamName,
         align: "high",
       },
       labels: {
@@ -548,19 +548,6 @@ export const barChart = function () {
     credits: {
       enabled: false,
     },
-    series: [
-      {
-        name: "Home",
-        data: [107, 31, 635, 203, 100, 120],
-      },
-      {
-        name: "Away",
-        data: [104, 37, 654, 290, 109, 127],
-      },
-      {
-        name: "Total",
-        data: [102, 67, 700, 300, 200, 240],
-      },
-    ],
+    series: teamStats,
   });
 };

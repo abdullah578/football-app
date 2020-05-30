@@ -1,4 +1,5 @@
 import axios from "axios";
+import { parseDate, timeDiffHour } from "../utils/parseQuery";
 
 let leagueCache, standingsCache, fixturesCache;
 class League {
@@ -55,7 +56,7 @@ class League {
       type === "standing" ? "current_standings" : "current_fixtures";
     if (cache[this.query]) {
       const now = new Date();
-      if (now.getHours() - cache[this.query].hour === 0) {
+      if (timeDiffHour(now, new Date(cache[this.query].dateCreated)) <= 1) {
         this[objProperty] = cache[this.query].response;
         console.log("S cache hit");
         return true;
@@ -79,7 +80,7 @@ class League {
       }));
       standingsCache[this.query] = {
         response: this.current_standings,
-        hour: new Date().getHours(),
+        dateCreated: new Date(),
       };
       localStorage.setItem("standingsCache", JSON.stringify(standingsCache));
     } catch (ex) {
@@ -105,7 +106,7 @@ class League {
       }));
       fixturesCache[this.query] = {
         response: this.current_fixtures,
-        hour: new Date().getHours(),
+        dateCreated: new Date(),
       };
       localStorage.setItem("fixturesCache", JSON.stringify(fixturesCache));
     } catch (ex) {
