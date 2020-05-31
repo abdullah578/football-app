@@ -299,10 +299,21 @@ tr:nth-child(odd) {
 .fixtures-div {
   flex: 0 0 95%;
 }
-.content-fixtures input {
+.fixture-forms {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+.content-fixtures form {
+  width: 120px;
   border-radius: 10px;
-  border: none;
-  padding-left: 20px;
+}
+.content-fixtures input {
+  width: 100%;
+}
+.content-fixtures input::placeholder {
+  color: #dbbbad;
 }
 .content-fixtures-heading {
   flex: 0 0 10%;

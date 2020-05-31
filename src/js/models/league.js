@@ -18,6 +18,7 @@ class League {
       //check if the current date is before than the season end and return true
       const now = new Date();
       const season_end = new Date(leagueCache[this.query].end.split("-"));
+      console.log(leagueCache[this.query]);
       if (now <= season_end || now.getDay() === leagueCache[this.query].day) {
         this.current_league = leagueCache[this.query];
         console.log("L cache Hit");
@@ -27,11 +28,6 @@ class League {
   }
 
   async fetchLeagueFromAPI(country) {
-    const config = {
-      method: "get",
-      url: `https://v2.api-football.com/leagues/search/${this.query}`,
-      headers: { "X-RapidAPI-Key": "8cbbd5e240931706dc6569e5a6bd597b" },
-    };
     try {
       const response = await axios(
         configuration(
@@ -117,6 +113,7 @@ class League {
           `https://v2.api-football.com/fixtures/league/${this.current_league.id}`
         )
       );
+      console.log(response.data.api);
       this.current_fixtures = response.data.api.fixtures.map((curr) => ({
         id: curr.fixture_id,
         status: curr.status,
@@ -127,6 +124,7 @@ class League {
         team2_id: curr.awayTeam.team_id,
         goals1: curr.goalsHomeTeam,
         goals2: curr.goalsAwayTeam,
+        elapsed: curr.elapsed,
       }));
       fixturesCache[this.query] = {
         response: this.current_fixtures,
@@ -151,7 +149,8 @@ class League {
           goals: elem.goals.total,
           assists: elem.goals.assists,
         }))
-        .slice(0, 15);
+        .slice(0, 17);
+
       scorersCache[this.query] = {
         response: this.current_scorers,
         dateCreated: new Date(),

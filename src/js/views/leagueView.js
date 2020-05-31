@@ -1,7 +1,7 @@
 import { elements } from "./Base";
 
-export const fetchUserInput = () => {
-  return elements.form_input.value;
+export const fetchUserInput = (elem) => {
+  return elem.value;
 };
 
 const displayStanding = ({ id, logo, name, points }, length) => {
@@ -38,13 +38,33 @@ export const displayStandings = (standingArr) => {
     displayStanding(curr, standingArr.length);
   });
 };
+const calculateStatus = (status) => {
+  if (status.startsWith("Match Finished")) return "f";
+  else if (
+    status === "First Half, Kick Off" ||
+    status === "Halftime" ||
+    status === "Second Half, 2nd Half Started" ||
+    status === "Extra Time" ||
+    status === "Penalty In Progress"
+  ) {
+    return "l";
+  } else return "u";
+};
 
-const displayFixture = ({ id, status, date, team1, team2, goals1, goals2 }) => {
+const displayFixture = ({
+  id,
+  status,
+  date,
+  team1,
+  team2,
+  goals1,
+  goals2,
+  elapsed,
+}) => {
+  let matchStatus = calculateStatus(status);
   const html = `
   <li>
-      <a href="#${
-        status === "Match Finished" ? "ff" : "uf"
-      }${id}" class="fixture-teams">
+      <a href="#${matchStatus}${id}" class="fixture-teams">
         <div class="teams-1-2">
           <div class="team-1">
             <h4 class="fixture-team-h4">${team1}</h4>
@@ -59,7 +79,9 @@ const displayFixture = ({ id, status, date, team1, team2, goals1, goals2 }) => {
             };">${goals2 !== null ? goals2 : "&nbsp;"}</p>
           </div>
         </div>
-        <p class="fixture-timing">${parseDate(date)}</p>
+        <p class="fixture-timing" style="${
+          matchStatus === "l" ? "color:#e67e22" : ""
+        }">${matchStatus === "l" ? `${elapsed} '` : parseDate(date)}</p>
       </a>
   </li>
   
@@ -145,7 +167,10 @@ export const displayFixtures = (
   elements.fixtureContent.innerHTML = `
   <div class="content-fixtures-heading">
     <h4>Fixtures</h4>
-    <form><input type="date" /></form>
+    <div class="fixture-forms">
+      <form><input type="text" placeholder="Team 1" /></form>
+      <form><input type="text" placeholder="Team 2" /></form>
+    </div>
   </div>
   <ul class="content-fixtures-list">
   </ul>`;
@@ -155,7 +180,9 @@ export const displayFixtures = (
   fixturesArr.slice(start, end).forEach((curr) => {
     displayFixture(curr);
   });
+  console.log(fixturesArr.length);
   renderButtons(currentPage, numPerPage, fixturesArr.length);
+  if (fixturesArr.length < numPerPage) elements.pagination.innerHTML = "";
 };
 export const displayScorers = (scorersArr, logo) => {
   if (!scorersArr) {
@@ -163,7 +190,7 @@ export const displayScorers = (scorersArr, logo) => {
     return null;
   }
   elements.stats.innerHTML = `
-      <figure class="league-logo" style="width: 200px; height: 200px;">
+      <figure class="league-logo" style="height: 70px;">
         <img
           src="${logo}"
           alt="league-logo"
@@ -193,4 +220,14 @@ export const displayScorers = (scorersArr, logo) => {
   document
     .querySelector(".scorers-table")
     .insertAdjacentHTML("beforeend", playerString);
+};
+export const highlightSelected = (id) => {
+  document
+    .querySelector(`a[href="#t${id}"]`)
+    .parentNode.classList.add("team-active");
+};
+export const clearSelected = () => {
+  Array.from(document.querySelectorAll(".team")).forEach((curr) => {
+    curr.classList.remove("team-active");
+  });
 };
