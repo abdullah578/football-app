@@ -160,10 +160,15 @@ header {
   display: flex;
   flex-direction: column;
 }
+.league-logo {
+  margin-bottom: 20px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+}
 .league-logo img {
   height: 100%;
   width: auto;
-  margin-left: 70px;
 }
 .highcharts-figure {
   margin-left: 50px;

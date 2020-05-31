@@ -6,7 +6,7 @@ export const fetchUserInput = () => {
 
 const displayStanding = ({ id, logo, name, points }, length) => {
   const html = `
-  <li class="team" style="${length<=10 ? "flex:0":""}">
+  <li class="team" style="${length <= 10 ? "flex:0" : ""}">
     <a href="#t${id}" class="current-standings-link">
       <figure class="team-fig">
         <img
@@ -156,4 +156,41 @@ export const displayFixtures = (
     displayFixture(curr);
   });
   renderButtons(currentPage, numPerPage, fixturesArr.length);
+};
+export const displayScorers = (scorersArr, logo) => {
+  if (!scorersArr) {
+    elements.stats.innerHTML = "";
+    return null;
+  }
+  elements.stats.innerHTML = `
+      <figure class="league-logo" style="width: 200px; height: 200px;">
+        <img
+          src="${logo}"
+          alt="league-logo"
+        />
+      </figure>
+      <h4 class="players">Top Players</h4>
+      <table class="scorers-table">
+        <tr style="background-color:#2d3844">
+          <th>Name</th>
+          <th>Position</th>
+          <th>Goals</th>
+          <th>Assists</th>
+        </tr>
+      </table>
+  `;
+  let playerString = "";
+  scorersArr.forEach((curr) => {
+    const { name, position, goals, assists } = curr;
+    playerString += `
+    <tr>
+      <td class="first-col">${name}</td>
+      <td class="second-col">${position}</td>
+      <td class="third-col">${goals ? goals : "&nbsp;"}</td>
+      <td class="fourth-col">${assists ? assists : "&nbsp;"}</td>
+    </tr>`;
+  });
+  document
+    .querySelector(".scorers-table")
+    .insertAdjacentHTML("beforeend", playerString);
 };

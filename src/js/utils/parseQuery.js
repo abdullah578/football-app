@@ -38,8 +38,9 @@ export const parseInput = (input) => {
 export const parseDate = (date) => {
   return `${date.getDate()}-${date.getMonth() + 1}-${date.getFullYear()}`;
 };
-export const timeDiffHour = (dt1, dt2) => {
+export const timeDiffHour = (dt1, dt2, units = "hour") => {
   var diff = (dt2.getTime() - dt1.getTime()) / 1000;
   diff /= 60 * 60;
+  if (units === "day") diff /= 24;
   return Math.abs(Math.round(diff));
 };

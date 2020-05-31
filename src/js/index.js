@@ -6,8 +6,9 @@ import {
   fetchUserInput,
   displayStandings,
   displayFixtures,
+  displayScorers,
 } from "./views/leagueView";
-import { displayTeamStats } from "./views/teamView";
+import { displayTeamStats, displayPlayers } from "./views/teamView";
 import { parseQuery, parseInput } from "./utils/parseQuery";
 const state = {};
 const leagueController = async () => {
@@ -26,29 +27,42 @@ const leagueController = async () => {
     ? await state.league.fetchLeagueFromAPI(parsedQuery.country)
     : null;
   if (!state.league.current_league) return null;
-  displaySpinner(elements.fixtureContent, elements.standings);
-  !state.league.searchDataCache("standing")
+  displaySpinner(elements.fixtureContent, elements.standings, elements.stats);
+  !state.league.searchDataCache("standings")
     ? await state.league.fetchStandingsFromAPI()
     : null;
 
   displayStandings(state.league.current_standings);
-  !state.league.searchDataCache("fixture")
+  !state.league.searchDataCache("fixtures")
     ? await state.league.fetchFixturesFromAPI()
     : null;
   state.dispFixture = state.league.current_fixtures;
   displayFixtures(state.dispFixture);
+  !state.league.searchDataCache("scorers")
+    ? await state.league.fetchScorersFromAPI()
+    : null;
+  displayScorers(
+    state.league.current_scorers,
+    state.league.current_league.logo
+  );
+  history.replaceState(null, null, " ");
 };
 const teamController = async (id) => {
   state.team = new Team(id);
-  !state.team.searchDataCache()
+  !state.team.searchDataCache("team")
     ? await state.team.fetchTeamStatsFromAPI(state.league.current_league.id)
     : null;
   displayTeamStats(state.team);
   state.dispFixture = state.league.current_fixtures.filter(
     (curr) => curr.team1_id == id || curr.team2_id == id
   );
-  console.log(state.dispFixture);
   displayFixtures(state.dispFixture);
+  !state.team.searchDataCache("player")
+    ? await state.team.fetchPlayersFromAPI(
+        new Date(state.league.current_league.end).getFullYear() - 1
+      )
+    : null;
+  displayPlayers(state.team.playerList);
 };
 
 elements.search.addEventListener("click", leagueController);
@@ -68,7 +82,6 @@ elements.pagination.addEventListener("click", (e) => {
     const hash_id = window.location.hash.replace("#", "");
     if (hash_id[0] === "t") {
       if (state.league) teamController(hash_id.slice(1));
-      else window.location.replace("/");
     }
   });
 });
