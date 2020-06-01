@@ -209,10 +209,15 @@ header {
   align-items: flex-start;
   justify-content: space-evenly;
 }
-.team-scores p {
+.score-p {
   font-size: 200%;
   margin-top: 60px;
   color: #ccc;
+}
+.match-status {
+  font-size: 70%;
+  margin-top: 10px;
+  margin-left: 23px;
 }
 .stats-title {
   text-align: center;

@@ -2,6 +2,7 @@ import * as chart from "./utils/charts";
 import { elements, displaySpinner } from "./views/Base";
 import League from "./models/League";
 import Team from "./models/Team";
+import FinsihedFixtures from "./models/FinishedFixtures";
 import {
   fetchUserInput,
   displayStandings,
@@ -11,7 +12,9 @@ import {
   clearSelected,
 } from "./views/leagueView";
 import { displayTeamStats, displayPlayers } from "./views/teamView";
+import { displayff } from "./views/ffView";
 import { parseQuery, parseInput } from "./utils/parseQuery";
+import FinishedFixtures from "./models/FinishedFixtures";
 const state = {};
 const leagueController = async () => {
   //get input from the input form
@@ -68,6 +71,24 @@ const teamController = async (id) => {
     : null;
   displayPlayers(state.team.playerList);
 };
+const ffController = async (id) => {
+  state.ff = new FinishedFixtures(id);
+  !state.ff.searchffCache() ? await state.ff.fetchffFromAPI() : null;
+  if (!state.league.current_fixtures) return null;
+  const index = state.league.current_fixtures.findIndex(
+    (curr) => curr.id === parseInt(id)
+  );
+  if (index === -1) return null;
+  const {
+    goals1,
+    goals2,
+    logo1,
+    logo2,
+    status_short,
+  } = state.league.current_fixtures[index];
+  console.log(logo1);
+  displayff(state.ff.ffStats, goals1, goals2, logo1, logo2, status_short);
+};
 
 elements.search.addEventListener("click", leagueController);
 
@@ -86,6 +107,8 @@ elements.pagination.addEventListener("click", (e) => {
     const hash_id = window.location.hash.replace("#", "");
     if (hash_id[0] === "t") {
       if (state.league) teamController(hash_id.slice(1));
+    } else if (hash_id[0] === "f") {
+      if (state.league) ffController(hash_id.slice(1));
     }
   });
 });

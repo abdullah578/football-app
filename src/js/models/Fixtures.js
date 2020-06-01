@@ -3,3 +3,4 @@ class Fixtures {
     this.id = id;
   }
 }
+export default Fixtures;
