@@ -46,7 +46,9 @@ const displayFixture = (
 ) => {
   let matchStatus = calculateStatus(status);
   const html = `
-  <li class="content-fixtures-list-element highlight-dark-${matchStatus}">
+  <li class="content-fixtures-list-element highlight-dark-${matchStatus}"  style="${
+    length <= 10 ? "flex:0" : ""
+  }">
       <a href="#${matchStatus}${id}" class="fixture-teams">
         <div class="teams-1-2">
           <div class="team-1">
@@ -138,7 +140,7 @@ export const renderButtons = (currentPage, numPerPage, numItems) => {
 export const displayFixtures = (
   fixturesArr,
   currentPage = 1,
-  numPerPage = 16
+  numPerPage = 15
 ) => {
   if (!fixturesArr) {
     elements.fixtureContent.innerHTML = "";

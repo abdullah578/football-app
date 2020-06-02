@@ -78,6 +78,15 @@ export const displayuf = ({ chartData, stats, winner }) => {
   displayStats(stats);
 };
 const displayStats = (ffObj) => {
+  const mapTitle = {
+    forme: "Form",
+    att: "Attack",
+    def: "Defence",
+    fish_law: "Poisson Distribution",
+    h2h: "Head to Head",
+    goals_h2h: "H2H Goals",
+    winningPercent: "Win Percentage",
+  };
   Object.keys(ffObj).forEach((title) => {
     if (ffObj[title].home === null || ffObj[title].away === null) return;
     const p1 = calcPercentage(
@@ -89,7 +98,7 @@ const displayStats = (ffObj) => {
       "beforeend",
       ` 
       <li class="fixture-stats-item">
-      <h6>${title}</h6>
+      <h6>${mapTitle[title] || title}</h6>
       <div class="fixture-stats-representaion">
         <p>${ffObj[title].home}</p>
         <div class="team-1-representation">

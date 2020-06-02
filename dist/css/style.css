@@ -152,6 +152,7 @@ header {
 .team a {
   display: flex;
   text-decoration: none;
+  height: 100%;
 }
 .team-fig {
   flex: 0 1 25%;
@@ -418,7 +419,6 @@ tr:nth-child(odd) {
   border-bottom: solid 1px #1b1f23;
   padding-bottom: 2px;
   height: 100%;
-  flex: 1;
   background-color: #2d3844;
   transition: background-color 0.2s;
 }
@@ -452,7 +452,7 @@ tr:nth-child(odd) {
   color: #fff;
   font-weight: 400;
   text-align: center;
-  margin-top: 30px;
+  margin-top: 18px;
   line-height: 120%;
 }
 @media only screen and (max-width: 900px) {
@@ -471,14 +471,15 @@ tr:nth-child(odd) {
   }
 }
 .fixtures-pag {
-  flex: 1;
-  padding: 5px;
+  flex: 0 0 5%;
+  padding-top: 25px;
+  padding-left: 5px;
+  padding-right: 5px;
 }
 .pag-prev,
 .pag-next {
   height: 20px;
   width: 80px;
-  margin-top: 10px;
   border-radius: 25px;
   border: none;
   font-size: 50%;
@@ -503,18 +504,23 @@ tr:nth-child(odd) {
   outline: none;
 }
 .icon {
-  width: 10px;
-  height: 10px;
+  width: 8.5px;
+  height: 8.5px;
 }
 @media only screen and (max-width: 900px) {
+  .fixtures-pag {
+    padding: 5px;
+  }
   .pag-prev,
   .pag-next {
     width: 40px;
     height: 10px;
-    padding-left: 1px;
+    padding-left: 0.5px;
+    padding-right: 0.5px;
+    margin-top: 20px;
   }
   .icon {
-    width: 20px;
+    width: 10px;
     height: 5px;
   }
 }
