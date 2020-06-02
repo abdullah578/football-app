@@ -7,7 +7,6 @@ export const displayTeamStats = ({ chartData, id }) => {
   elements.stats.innerHTML = `
     <figure
     class="highcharts-figure"
-    style="width: 400px; height: 400px;"
     >
     <div id="charts"></div>
     </figure>

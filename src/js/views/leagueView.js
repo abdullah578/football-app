@@ -40,16 +40,10 @@ export const displayStandings = (standingArr) => {
   });
 };
 
-const displayFixture = ({
-  id,
-  status,
-  date,
-  team1,
-  team2,
-  goals1,
-  goals2,
-  elapsed,
-}) => {
+const displayFixture = (
+  { id, status, date, team1, team2, goals1, goals2, elapsed },
+  length
+) => {
   let matchStatus = calculateStatus(status);
   const html = `
   <li class="content-fixtures-list-element highlight-dark-${matchStatus}">
@@ -166,7 +160,7 @@ export const displayFixtures = (
   const start = (currentPage - 1) * numPerPage;
   const end = start + numPerPage;
   fixturesArr.slice(start, end).forEach((curr) => {
-    displayFixture(curr);
+    displayFixture(curr, fixturesArr.length);
   });
   console.log(fixturesArr.length);
   renderButtons(currentPage, numPerPage, fixturesArr.length);

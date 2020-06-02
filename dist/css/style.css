@@ -17,6 +17,12 @@ body {
   font-family: "Lato", Arial, sans-serif;
   height: 1329px;
 }
+@media only screen and (max-width: 900px) {
+  body {
+    font-size: 10px;
+  }
+}
+
 .container {
   height: 96%;
   max-width: 1140px;
@@ -33,7 +39,7 @@ header {
   justify-content: space-around;
 }
 .header-logo {
-  flex: 0 0 25%;
+  flex: 0 1 25%;
   height: 100%;
   text-align: center;
 }
@@ -43,7 +49,7 @@ header {
   margin-top: 9px;
 }
 .header-form {
-  flex: 0 0 50%;
+  flex: 0 1 50%;
   height: 100%;
   display: flex;
   align-items: center;
@@ -59,8 +65,14 @@ header {
   margin-left: 10px;
   color: #555;
 }
+@media only screen and (max-width: 900px) {
+  .header-form input {
+    height: 30%;
+  }
+}
+
 .header-search {
-  flex: 0 0 25%;
+  flex: 0 1 25%;
   display: flex;
   justify-content: center;
   height: 100%;
@@ -74,8 +86,16 @@ header {
   padding-right: 30px;
   border-radius: 20px;
   color: #d3beb6;
+
   font-weight: 400;
   text-transform: uppercase;
+}
+@media only screen and (max-width: 900px) {
+  .header-form-btn {
+    height: 30%;
+    margin-top: 22px;
+    font-size: 100%;
+  }
 }
 .header-form-btn:active,
 .header-form-btn:hover {
@@ -98,7 +118,7 @@ header {
 /*The standing column(leftmost)*/
 
 .content-table {
-  flex: 0 0 25%;
+  flex: 0 1 25%;
   height: 100%;
   background-color: #2d3844;
   display: flex;
@@ -134,21 +154,27 @@ header {
   text-decoration: none;
 }
 .team-fig {
-  flex: 0 0 25%;
+  flex: 0 1 25%;
   height: 100%;
 }
 .team-fig img {
   height: 40px;
   width: 40px;
 }
+@media only screen and (max-width: 900px) {
+  .team-fig img {
+    height: 20px;
+    width: 20px;
+  }
+}
 .team-h4 {
-  flex: 0 0 50%;
+  flex: 0 1 50%;
   font-size: 70%;
   color: #fff;
   text-align: center;
 }
 .team-p {
-  flex: 0 0 25%;
+  flex: 0 1 25%;
   color: #fff;
   font-size: 70%;
   text-align: center;
@@ -157,7 +183,7 @@ header {
 /*The main section of the container(middle column)*/
 
 .content-stats {
-  flex: 0 0 50%;
+  flex: 0 1 50%;
   height: 100%;
   background-color: #364250;
   padding: 40px;
@@ -175,8 +201,21 @@ header {
   width: auto;
 }
 .highcharts-figure {
-  margin-left: 50px;
+  margin-left: 45px;
+  width: 400px;
+  height: 400px;
   overflow: hidden;
+}
+@media only screen and (max-width: 900px) {
+  .content-stats {
+    padding: 10px;
+    align-items: center;
+  }
+  .highcharts-figure {
+    width: 250px;
+    height: 400px;
+    margin-left: 0;
+  }
 }
 .predicted-heading {
   color: #e67e22;
@@ -186,6 +225,11 @@ header {
   flex-direction: column;
   justify-content: space-evenly;
   flex: 1;
+}
+@media only screen and (max-width: 900px) {
+  .predicted-stats {
+    justify-content: start;
+  }
 }
 .prediction-team-names {
   display: flex;
@@ -222,6 +266,16 @@ header {
   font-size: 70%;
   margin-top: 10px;
   margin-left: 23px;
+}
+@media only screen and (max-width: 900px) {
+  .team-scores img {
+    width: 60px;
+    height: auto;
+    margin-top: 40px;
+  }
+  .match-status {
+    margin-left: 13px;
+  }
 }
 .stats-title {
   text-align: center;
@@ -299,7 +353,7 @@ tr:nth-child(odd) {
 }
 /*The fixtures (rightmost column)*/
 .content-fixtures {
-  flex: 0 0 25%;
+  flex: 0 1 25%;
   height: 100%;
   background-color: #2d3844;
   display: flex;
@@ -307,12 +361,20 @@ tr:nth-child(odd) {
 }
 .fixtures-div {
   flex: 0 0 95%;
+  display: flex;
+  flex-direction: column;
 }
 .fixture-forms {
   display: flex;
   width: 100%;
   align-items: center;
+  font-size: 100%;
   justify-content: center;
+}
+@media only screen and (max-width: 900px) {
+  .fixture-forms input {
+    height: 10px;
+  }
 }
 .content-fixtures form {
   width: 120px;
@@ -325,7 +387,7 @@ tr:nth-child(odd) {
   color: #dbbbad;
 }
 .content-fixtures-heading {
-  flex: 0 0 10%;
+  flex: 0 0 4%;
   color: #e67e22;
   text-align: center;
   padding-top: 5px;
@@ -339,14 +401,16 @@ tr:nth-child(odd) {
   outline: none;
 }
 .content-fixtures-list {
-  flex: 0 0 90%;
+  flex: 0 0 96%;
   width: 100%;
   display: flex;
   flex-direction: column;
 }
 .content-fixtures-list a {
   text-decoration: none;
+  height: 100%;
   display: flex;
+  align-items: center;
 }
 .content-fixtures-list-element {
   color: #fff;
@@ -354,7 +418,7 @@ tr:nth-child(odd) {
   border-bottom: solid 1px #1b1f23;
   padding-bottom: 2px;
   height: 100%;
-  flex: 0;
+  flex: 1;
   background-color: #2d3844;
   transition: background-color 0.2s;
 }
@@ -363,7 +427,7 @@ tr:nth-child(odd) {
   background-color: #26303a;
 }
 .teams-1-2 {
-  flex: 0 0 80%;
+  flex: 0 1 80%;
 }
 .team-1,
 .team-2 {
@@ -372,24 +436,39 @@ tr:nth-child(odd) {
 }
 .fixture-team-h4 {
   color: #fff;
-  flex: 0 0 85%;
+  flex: 0 1 85%;
   font-size: 70%;
 }
 .fixture-team-p {
-  flex: 0 0 15%;
+  flex: 0 1 15%;
   font-size: 80%;
 }
 .team-1 {
   margin-top: 10px;
 }
 .fixture-timing {
-  flex: 0 0 20%;
+  flex: 0 1 20%;
   font-size: 45%;
   color: #fff;
   font-weight: 400;
   text-align: center;
   margin-top: 30px;
   line-height: 120%;
+}
+@media only screen and (max-width: 900px) {
+  .teams-1-2 {
+    flex: 0 1 70%;
+  }
+  .fixture-timing {
+    flex: 0 1 30%;
+    margin-top: 20px;
+  }
+  .fixture-team-h4 {
+    flex: 0 1 80%;
+  }
+  .fixture-team-p {
+    flex: 0 1 20%;
+  }
 }
 .fixtures-pag {
   flex: 1;
@@ -426,6 +505,18 @@ tr:nth-child(odd) {
 .icon {
   width: 10px;
   height: 10px;
+}
+@media only screen and (max-width: 900px) {
+  .pag-prev,
+  .pag-next {
+    width: 40px;
+    height: 10px;
+    padding-left: 1px;
+  }
+  .icon {
+    width: 20px;
+    height: 5px;
+  }
 }
 
 .loader {
