@@ -7,6 +7,7 @@ export const elements = {
   pagination: document.querySelector(".fixtures-pag"),
   stats: document.querySelector(".content-stats"),
   fixtureContent: document.querySelector(".fixtures-div"),
+  logo: document.querySelector(".header-logo img"),
 };
 
 export const displaySpinner = (...elems) => {
@@ -20,14 +21,15 @@ export const displaySpinner = (...elems) => {
   `;
   });
 };
-export const highlightSelected = (id,type) => {
+export const highlightSelected = (id, type) => {
   document
     .querySelector(`a[href="#${type}${id}"]`)
     .parentNode.classList.add("team-active");
 };
 export const clearSelected = (type) => {
-  Array.from(document.querySelectorAll(`.highlight-dark-${type}`)).forEach((curr) => {
-    curr.classList.remove("team-active");
-  });
+  Array.from(document.querySelectorAll(`.highlight-dark-${type}`)).forEach(
+    (curr) => {
+      curr.classList.remove("team-active");
+    }
+  );
 };
-

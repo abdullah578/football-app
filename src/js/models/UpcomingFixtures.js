@@ -1,13 +1,32 @@
 import Fixtures from "./Fixtures";
 import axios from "axios";
 import { configuration } from "./api";
+import { timeDiffHour } from "../utils/parseData";
 let ufCache;
 class UpcomingFixtures extends Fixtures {
   constructor(id) {
     super(id);
     ufCache = JSON.parse(localStorage.getItem("ufCache")) || {};
   }
-  searchufCache() {return false;}
+  searchufCache() {
+    if (ufCache[this.id]) {
+      const now = new Date();
+      if (
+        timeDiffHour(now, new Date(ufCache[this.id].dateCreated), "day") <= 1
+      ) {
+        Object.keys(ufCache[this.id].data).forEach(
+          (elem) => (this[elem] = ufCache[this.id].data[elem])
+        );
+        console.log("U cache hit");
+        console.log(this);
+        return true;
+      } else {
+        return false;
+      }
+    } else {
+      return false;
+    }
+  }
   async fetchufFromAPI() {
     try {
       const response = await axios(
@@ -31,7 +50,7 @@ class UpcomingFixtures extends Fixtures {
         data: {
           stats: this.stats,
           winner: this.winner,
-          charData: this.chartData,
+          chartData: this.chartData,
         },
         dateCreated: new Date(),
       };

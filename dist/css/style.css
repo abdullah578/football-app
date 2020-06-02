@@ -34,6 +34,13 @@ header {
 }
 .header-logo {
   flex: 0 0 25%;
+  height: 100%;
+  text-align: center;
+}
+.header-logo img {
+  width: auto;
+  height: 70%;
+  margin-top: 9px;
 }
 .header-form {
   flex: 0 0 50%;
@@ -304,8 +311,8 @@ tr:nth-child(odd) {
 .fixture-forms {
   display: flex;
   width: 100%;
-  justify-content: space-between;
   align-items: center;
+  justify-content: center;
 }
 .content-fixtures form {
   width: 120px;

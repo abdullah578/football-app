@@ -157,8 +157,7 @@ export const displayFixtures = (
   <div class="content-fixtures-heading">
     <h4>Fixtures</h4>
     <div class="fixture-forms">
-      <form><input type="text" placeholder="Team 1" /></form>
-      <form><input type="text" placeholder="Team 2" /></form>
+      <form><input type="text" placeholder="Team..." /></form>
     </div>
   </div>
   <ul class="content-fixtures-list">

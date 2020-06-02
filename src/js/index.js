@@ -151,6 +151,7 @@ const ufController = async (id) => {
   const now = new Date();
   if (now >= matchDate) window.location.replace("#l${id}");
   !state.uf.searchufCache() ? await state.uf.fetchufFromAPI() : null;
+  console.log(state.uf);
   clearSelected("u");
   highlightSelected(id, "u");
   displayuf(state.uf);
@@ -196,4 +197,11 @@ elements.fixtures.addEventListener("submit", (e) => {
     ? state.dispFixture
     : state.league.current_fixtures;
   displayFixtures(state.dispFixture);
+});
+elements.logo.addEventListener("click", () => {
+  if (state.league) {
+    state.dispFixture = state.league.current_fixtures;
+    state.current_page = 1;
+    displayFixtures(state.dispFixture);
+  }
 });
