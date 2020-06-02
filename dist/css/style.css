@@ -1,5 +1,4 @@
 /*General Styles*/
-
 * {
   padding: 0;
   margin: 0;
@@ -118,9 +117,7 @@ header {
   transition: background-color 0.2s;
   flex: 1;
 }
-.team-active {
-  background-color: #26303a;
-}
+
 .team:active,
 .team:hover {
   background-color: #26303a;
@@ -344,7 +341,7 @@ tr:nth-child(odd) {
   text-decoration: none;
   display: flex;
 }
-.content-fixtures-list li {
+.content-fixtures-list-element {
   color: #fff;
   list-style: none;
   border-bottom: solid 1px #1b1f23;
@@ -441,4 +438,7 @@ tr:nth-child(odd) {
   100% {
     transform: rotate(360deg);
   }
+}
+.team-active {
+  background-color: #26303a;
 }

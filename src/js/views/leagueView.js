@@ -1,4 +1,5 @@
 import { elements } from "./Base";
+import { calculateStatus } from "../utils/parseData";
 
 export const fetchUserInput = (elem) => {
   return elem.value;
@@ -6,7 +7,7 @@ export const fetchUserInput = (elem) => {
 
 const displayStanding = ({ id, logo, name, points }, length) => {
   const html = `
-  <li class="team" style="${length <= 10 ? "flex:0" : ""}">
+  <li class="team highlight-dark-t" style="${length <= 10 ? "flex:0" : ""}">
     <a href="#t${id}" class="current-standings-link">
       <figure class="team-fig">
         <img
@@ -38,18 +39,6 @@ export const displayStandings = (standingArr) => {
     displayStanding(curr, standingArr.length);
   });
 };
-const calculateStatus = (status) => {
-  if (status.startsWith("Match Finished")) return "f";
-  else if (
-    status === "First Half, Kick Off" ||
-    status === "Halftime" ||
-    status === "Second Half, 2nd Half Started" ||
-    status === "Extra Time" ||
-    status === "Penalty In Progress"
-  ) {
-    return "l";
-  } else return "u";
-};
 
 const displayFixture = ({
   id,
@@ -63,7 +52,7 @@ const displayFixture = ({
 }) => {
   let matchStatus = calculateStatus(status);
   const html = `
-  <li>
+  <li class="content-fixtures-list-element highlight-dark-${matchStatus}">
       <a href="#${matchStatus}${id}" class="fixture-teams">
         <div class="teams-1-2">
           <div class="team-1">
@@ -220,14 +209,4 @@ export const displayScorers = (scorersArr, logo) => {
   document
     .querySelector(".scorers-table")
     .insertAdjacentHTML("beforeend", playerString);
-};
-export const highlightSelected = (id) => {
-  document
-    .querySelector(`a[href="#t${id}"]`)
-    .parentNode.classList.add("team-active");
-};
-export const clearSelected = () => {
-  Array.from(document.querySelectorAll(".team")).forEach((curr) => {
-    curr.classList.remove("team-active");
-  });
 };

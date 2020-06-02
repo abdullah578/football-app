@@ -1,12 +1,15 @@
 import { elements } from "./Base";
+import { radarChart } from "../utils/charts";
 
-export const displayff = (
+export const displayf = (
   ffObj,
   goals1,
   goals2,
   logo1,
   logo2,
-  status_short
+  status_short,
+  elapsed,
+  isLive
 ) => {
   elements.stats.innerHTML = `
     <div class="team-scores">
@@ -16,7 +19,9 @@ export const displayff = (
     />
     <div>
     <p class="score-p">${goals1}-${goals2}</p>
-    <p class="match-status">${status_short}</p>
+    <p class="match-status" style=${isLive ? "color:#e67e22" : ""}>${
+    isLive ? elapsed : status_short
+  }</p>
     </div>
     <img
       src="${logo2}"
@@ -36,6 +41,44 @@ export const displayff = (
    
    `
   );
+  displayStats(ffObj);
+};
+const calcPercentage = (p1, p2) => {
+  if (p1 || p2) return (p1 / (p1 + p2)) * 100;
+  else return 50;
+};
+
+export const displayuf = ({ chartData, stats, winner }) => {
+  if (!chartData || !stats) return null;
+  elements.stats.innerHTML = `
+  <figure
+    class="highcharts-figure"
+    style="width: 400px; height: 400px;"
+  >
+    <div id="charts"></div>
+  </figure>
+  `;
+  radarChart(chartData);
+  elements.stats.insertAdjacentHTML(
+    "beforeend",
+    `
+  <div class="predicted-stats">
+  <div class="prediction-team-names">
+    <h4>${chartData.team1.name}</h4>
+    <h4>${chartData.team2.name}</h4>
+  </div>
+  <div class="team-fixture-stats">
+   <ul class="fixture-stats-list">
+   </ul>
+   <div class="winner">
+    <p>${winner}</p>
+   </div>
+  </div>
+  `
+  );
+  displayStats(stats);
+};
+const displayStats = (ffObj) => {
   Object.keys(ffObj).forEach((title) => {
     if (ffObj[title].home === null || ffObj[title].away === null) return;
     const p1 = calcPercentage(
@@ -72,8 +115,4 @@ export const displayff = (
       `
     );
   });
-};
-const calcPercentage = (p1, p2) => {
-  if (p1 || p2) return (p1 / (p1 + p2)) * 100;
-  else return 50;
 };

@@ -1,5 +1,5 @@
 import axios from "axios";
-import { parseDate, timeDiffHour } from "../utils/parseQuery";
+import { parseDate, timeDiffHour } from "../utils/parseData";
 import { configuration } from "./api";
 
 let leagueCache, standingsCache, fixturesCache, scorersCache;
@@ -72,12 +72,16 @@ class League {
     const objProperty = `current_${type}`;
     const unit = cacheObj[type].unit;
 
-    if (cache[this.query]) {
+    if (cache[this.current_league.id]) {
       const now = new Date();
       if (
-        timeDiffHour(now, new Date(cache[this.query].dateCreated), unit) <= 1
+        timeDiffHour(
+          now,
+          new Date(cache[this.current_league.id].dateCreated),
+          unit
+        ) <= 1
       ) {
-        this[objProperty] = cache[this.query].response;
+        this[objProperty] = cache[this.current_league.id].response;
         console.log("S cache hit");
         return true;
       } else return false;
@@ -97,7 +101,7 @@ class League {
         points: curr.points,
         name: curr.teamName,
       }));
-      standingsCache[this.query] = {
+      standingsCache[this.current_league.id] = {
         response: this.current_standings,
         dateCreated: new Date(),
       };
@@ -113,11 +117,9 @@ class League {
           `https://v2.api-football.com/fixtures/league/${this.current_league.id}`
         )
       );
-      console.log(response.data.api);
       this.current_fixtures = response.data.api.fixtures.map((curr) => ({
         id: curr.fixture_id,
-        status: curr.status,
-        status_short: curr.statusShort,
+        status: curr.statusShort,
         date: curr.event_date,
         team1: curr.homeTeam.team_name,
         team2: curr.awayTeam.team_name,
@@ -129,7 +131,7 @@ class League {
         goals2: curr.goalsAwayTeam,
         elapsed: curr.elapsed,
       }));
-      fixturesCache[this.query] = {
+      fixturesCache[this.current_league.id] = {
         response: this.current_fixtures,
         dateCreated: new Date(),
       };
@@ -154,7 +156,7 @@ class League {
         }))
         .slice(0, 17);
 
-      scorersCache[this.query] = {
+      scorersCache[this.current_league.id] = {
         response: this.current_scorers,
         dateCreated: new Date(),
       };

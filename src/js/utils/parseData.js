@@ -44,3 +44,16 @@ export const timeDiffHour = (dt1, dt2, units = "hour") => {
   if (units === "day") diff /= 24;
   return Math.abs(Math.round(diff));
 };
+
+export const calculateStatus = (status) => {
+  if (status === "FT" || status === "AET" || status === "PEN") return "f";
+  else if (
+    status === "1H" ||
+    status === "2H" ||
+    status === "ET" ||
+    status === "P" ||
+    status === "HT"
+  ) {
+    return "l";
+  } else return "u";
+};

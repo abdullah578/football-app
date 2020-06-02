@@ -20,3 +20,14 @@ export const displaySpinner = (...elems) => {
   `;
   });
 };
+export const highlightSelected = (id,type) => {
+  document
+    .querySelector(`a[href="#${type}${id}"]`)
+    .parentNode.classList.add("team-active");
+};
+export const clearSelected = (type) => {
+  Array.from(document.querySelectorAll(`.highlight-dark-${type}`)).forEach((curr) => {
+    curr.classList.remove("team-active");
+  });
+};
+

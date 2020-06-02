@@ -1,5 +1,5 @@
 import axios from "axios";
-import { timeDiffHour } from "../utils/parseQuery";
+import { timeDiffHour } from "../utils/parseData";
 import { configuration } from "./api";
 let teamCache, playerCache;
 class Team {

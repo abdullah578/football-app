@@ -1,4 +1,5 @@
-export const radarChart = function () {
+export const radarChart = function (chartData) {
+  console.log(chartData);
   Highcharts.theme = {
     colors: [
       "#2b908f",
@@ -211,8 +212,7 @@ export const radarChart = function () {
     },
 
     accessibility: {
-      description:
-        "A spiderweb chart compares the allocated budget against actual spending within an organization. The spider chart has six spokes. Each spoke represents one of the 6 departments within the organization: sales, marketing, development, customer support, information technology and administration. The chart is interactive, and each data point is displayed upon hovering. The chart clearly shows that 4 of the 6 departments have overspent their budget with Marketing responsible for the greatest overspend of $20,000. The allocated budget and actual spending data points for each department are as follows: Sales. Budget equals $43,000; spending equals $50,000. Marketing. Budget equals $19,000; spending equals $39,000. Development. Budget equals $60,000; spending equals $42,000. Customer support. Budget equals $35,000; spending equals $31,000. Information technology. Budget equals $17,000; spending equals $26,000. Administration. Budget equals $10,000; spending equals $14,000.",
+      description: "",
     },
 
     title: {
@@ -226,11 +226,11 @@ export const radarChart = function () {
 
     xAxis: {
       categories: [
-        "Goals For",
-        "Goals Against",
+        "Wins",
         "Losses",
         "Draws",
-        "Wins",
+        "Goals For",
+        "Goals Against",
         "Goals Avg",
       ],
       tickmarkPlacement: "on",
@@ -257,13 +257,13 @@ export const radarChart = function () {
 
     series: [
       {
-        name: "Liverpool",
-        data: [4, 6, 7, 8, 1, 5],
+        name: chartData.team1.name,
+        data: chartData.team1.data,
         pointPlacement: "on",
       },
       {
-        name: "Manchester United",
-        data: [2, 5, 7, 9, 3, 1],
+        name: chartData.team2.name,
+        data: chartData.team2.data,
         pointPlacement: "on",
       },
     ],
@@ -290,7 +290,7 @@ export const radarChart = function () {
   });
 };
 
-export const barChart = function (teamName,teamStats) {
+export const barChart = function (teamName, teamStats) {
   Highcharts.theme = {
     colors: [
       "#2b908f",
