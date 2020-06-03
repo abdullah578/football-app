@@ -82,7 +82,7 @@ const teamController = async (id) => {
     ? await state.team.fetchTeamStatsFromAPI(state.league.current_league.id)
     : null;
 
-  clearSelected("t");         //allows for clicked 
+  clearSelected("t"); //allows for clicked
   highlightSelected(id, "t"); //team to remain highlighted
 
   //displays the team stats
@@ -115,8 +115,8 @@ const ffController = async (id) => {
   //search for finished fixture details in cache, if not found fetch from api
   !state.ff.searchffCache() ? await state.ff.fetchffFromAPI() : null;
 
-  clearSelected("f");           //allows for selected fixture
-  highlightSelected(id, "f");   //to remain highlighted
+  clearSelected("f"); //allows for selected fixture
+  highlightSelected(id, "f"); //to remain highlighted
 
   //search for clicked fixture in the fixtures array
   const index = state.league.current_fixtures.findIndex(
@@ -127,6 +127,8 @@ const ffController = async (id) => {
   const {
     goals1,
     goals2,
+    team1,
+    team2,
     logo1,
     logo2,
     status,
@@ -134,6 +136,8 @@ const ffController = async (id) => {
   } = state.league.current_fixtures[index];
   displayf(
     state.ff.ffStats,
+    team1,
+    team2,
     goals1,
     goals2,
     logo1,
@@ -146,7 +150,6 @@ const ffController = async (id) => {
 
 //runs when the user clicks on a live fixture
 const lfController = async (id) => {
-
   //check if the hash remains the same
   if (
     !window.location.hash ||
@@ -159,7 +162,6 @@ const lfController = async (id) => {
   await state.lf.fetchlfFromAPI();
   if (!state.lf.info) return null;
   if (state.league) {
-
     //update the fixtures array (current_fixtures)
     const index1 = state.league.current_fixtures.findIndex(
       (curr) => curr.id === parseInt(id)
@@ -179,9 +181,20 @@ const lfController = async (id) => {
   }
 
   //display live fixture stats
-  const { goals1, goals2, logo1, logo2, status, elapsed } = state.lf.info;
+  const {
+    goals1,
+    goals2,
+    team1,
+    team2,
+    logo1,
+    logo2,
+    status,
+    elapsed,
+  } = state.lf.info;
   displayf(
     state.lf.stats,
+    team1,
+    team2,
     goals1,
     goals2,
     logo1,
@@ -260,8 +273,7 @@ elements.pagination.addEventListener("click", (e) => {
 
 //runs when user searches for a team in the fixtures column
 elements.fixtures.addEventListener("submit", (e) => {
-  
-  e.preventDefault();   //prevent page reload
+  e.preventDefault(); //prevent page reload
   let teamName = fetchUserInput(e.target.firstChild);
   state.current_page = 1;
 
@@ -278,7 +290,6 @@ elements.fixtures.addEventListener("submit", (e) => {
     : state.league.current_fixtures;
   displayFixtures(state.dispFixture);
 });
-
 
 elements.logo.addEventListener("click", () => {
   if (state.league) {

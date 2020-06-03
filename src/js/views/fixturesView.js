@@ -4,6 +4,8 @@ import { radarChart } from "../utils/charts";
 //display finished fixtures or live fixtures
 export const displayf = (
   ffObj,
+  team1,
+  team2,
   goals1,
   goals2,
   logo1,
@@ -14,20 +16,26 @@ export const displayf = (
 ) => {
   elements.stats.innerHTML = `
     <div class="team-scores">
+    <div>
     <img
       src="${logo1}"
       alt="foot-logo"
     />
+    <p class="team-score-name">${team1}</p>
+    </div>
     <div>
     <p class="score-p">${goals1}-${goals2}</p>
     <p class="match-status" style=${isLive ? "color:#e67e22" : ""}>${
     isLive ? elapsed : status_short
   }</p>
     </div>
+    <div>
     <img
       src="${logo2}"
       alt="foot-logo"
     />
+    <p class="team-score-name">${team2}</p>
+    </div>
   </div>   
     `;
   if (!ffObj) return null;
