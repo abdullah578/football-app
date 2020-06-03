@@ -6,6 +6,8 @@ let leagueCache, standingsCache, fixturesCache, scorersCache;
 class League {
   constructor(query) {
     this.query = query;
+
+    //fetch caches from localStorage
     leagueCache = JSON.parse(localStorage.getItem("leagueCache")) || {};
     standingsCache = JSON.parse(localStorage.getItem("standingsCache")) || {};
     fixturesCache = JSON.parse(localStorage.getItem("fixturesCache")) || {};
@@ -18,10 +20,15 @@ class League {
       //check if the current date is before than the season end and return true
       const now = new Date();
       const season_end = new Date(leagueCache[this.query].end.split("-"));
-      console.log(leagueCache[this.query]);
-      if (now <= season_end || now.getDay() === leagueCache[this.query].day) {
+
+      //if current date is before season end or less than a day has 
+      //passed since first league search return true and set data
+      if (now <= season_end || timeDiffHour(
+        now,
+        new Date(leagueCache[this.query].dateCreated),
+        "day"
+      ) <= 1) {
         this.current_league = leagueCache[this.query];
-        console.log("L cache Hit");
         return true;
       } else return false;
     } else return false;
@@ -35,6 +42,8 @@ class League {
         )
       );
       let leagueObj = response.data.api.leagues;
+
+      //sort the response in a descending order of dates
       if (country)
         leagueObj = leagueObj.filter((curr) => curr.country === country);
       leagueObj = leagueObj.sort((a, b) => b.season - a.season);
@@ -42,18 +51,18 @@ class League {
       this.current_league = {
         id: league_id,
         end: season_end,
-        day: new Date().getDay(),
+        dateCreated: new Date(),
         logo,
         name,
       };
       leagueCache[this.query] = this.current_league;
       localStorage.setItem("leagueCache", JSON.stringify(leagueCache));
     } catch (ex) {
-      alert(ex);
+      alert("An Error Occured! :(");
     }
   }
   searchDataCache(type) {
-    //check if in cache and return true if present
+    //check if in cache and return true if present and set data
     const cacheObj = {
       standings: {
         cacheType: standingsCache,
@@ -82,7 +91,6 @@ class League {
         ) <= 1
       ) {
         this[objProperty] = cache[this.current_league.id].response;
-        console.log("S cache hit");
         return true;
       } else return false;
     }
@@ -107,7 +115,7 @@ class League {
       };
       localStorage.setItem("standingsCache", JSON.stringify(standingsCache));
     } catch (ex) {
-      alert(ex);
+      alert("An Error Occurred! :(");
     }
   }
   async fetchFixturesFromAPI() {
@@ -137,7 +145,7 @@ class League {
       };
       localStorage.setItem("fixturesCache", JSON.stringify(fixturesCache));
     } catch (ex) {
-      console.log(ex);
+      alert("An Error Occurred!");
     }
   }
   async fetchScorersFromAPI() {
@@ -147,6 +155,8 @@ class League {
           `https://v2.api-football.com/topscorers/${this.current_league.id}`
         )
       );
+
+      //fetch the top 17 players from topscorers list
       this.current_scorers = response.data.api.topscorers
         .map((elem) => ({
           name: elem.player_name,
@@ -162,7 +172,7 @@ class League {
       };
       localStorage.setItem("scorersCache", JSON.stringify(scorersCache));
     } catch (ex) {
-      alert(ex);
+      alert("An Error Occurred! :(");
     }
   }
 }

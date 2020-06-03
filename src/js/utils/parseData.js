@@ -1,3 +1,5 @@
+
+//gives the correct name based on popular searches for the top leagues
 export const parseQuery = {
   la_liga: {
     name: "primera_division",
@@ -38,6 +40,8 @@ export const parseInput = (input) => {
 export const parseDate = (date) => {
   return `${date.getDate()}-${date.getMonth() + 1}-${date.getFullYear()}`;
 };
+
+//calculate time passed between two events in units
 export const timeDiffHour = (dt1, dt2, units = "hour") => {
   var diff = (dt2.getTime() - dt1.getTime()) / 1000;
   diff /= 60 * 60;

@@ -38,9 +38,12 @@ class LiveFixtures extends Fixtures {
         ? this.updateffCache()
         : null;
     } catch (ex) {
-      alert(ex);
+      alert("An Error Occurred! :(");
     }
   }
+
+  //find the fixture index from the fixture array
+  //if found, update fixtures with new data
   updateFixturesCache() {
     const fixtures = JSON.parse(localStorage.getItem("fixturesCache"));
     if (!fixtures[this.league_id]) return null;
@@ -51,6 +54,8 @@ class LiveFixtures extends Fixtures {
     fixtures[this.league_id].response[index] = this.info;
     localStorage.setItem("fixturesCache", JSON.stringify(fixtures));
   }
+
+  //once a live fixture is over, update ffCache
   updateffCache() {
     const ff = JSON.parse(localStorage.getItem("ffCache"))||{};
     ff[this.id] = this.stats;

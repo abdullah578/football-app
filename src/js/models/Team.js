@@ -16,12 +16,14 @@ class Team {
       const now = new Date();
       if (timeDiffHour(now, new Date(cache[this.id].dateCreated), unit) <= 1) {
         this[objProperty] = cache[this.id].response;
-        console.log("T cache hit");
         return true;
       } else return false;
     }
     return false;
   }
+
+  //fetch all players for a team and get the 11 players 
+  //with the most minutes played
   async fetchTeamStatsFromAPI(league_id) {
     try {
       const response = await axios(
@@ -73,7 +75,6 @@ class Team {
           }`
         )
       );
-      console.log(response.data.api.players);
       this.playerList = response.data.api.players
         .map((curr) => ({
           minutes: curr.games.minutes_played,
@@ -84,15 +85,13 @@ class Team {
         }))
         .sort((a, b) => b.minutes - a.minutes)
         .slice(0, 11);
-      console.log(name);
-      console.log(this.playerList);
       playerCache[this.id] = {
         response: this.playerList,
         dateCreated: new Date(),
       };
       localStorage.setItem("playerCache", JSON.stringify(playerCache));
     } catch (ex) {
-      console.log(ex);
+      alert("An Error Occurred! :(");
     }
   }
 }

@@ -1,3 +1,5 @@
+
+//giving simple name for required DOM elements
 export const elements = {
   search: document.querySelector(".header-form-btn"),
   form: document.querySelector(".header-form"),
@@ -10,6 +12,7 @@ export const elements = {
   logo: document.querySelector(".header-logo img"),
 };
 
+//displays the animated loading image
 export const displaySpinner = (...elems) => {
   elems.forEach((curr) => {
     curr.innerHTML = `
@@ -21,11 +24,15 @@ export const displaySpinner = (...elems) => {
   `;
   });
 };
+
+//highlights a certain element
 export const highlightSelected = (id, type) => {
   document
     .querySelector(`a[href="#${type}${id}"]`)
     .parentNode.classList.add("team-active");
 };
+
+//clears a highlighted element
 export const clearSelected = (type) => {
   Array.from(document.querySelectorAll(`.highlight-dark-${type}`)).forEach(
     (curr) => {

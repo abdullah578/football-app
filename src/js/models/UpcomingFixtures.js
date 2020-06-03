@@ -17,8 +17,6 @@ class UpcomingFixtures extends Fixtures {
         Object.keys(ufCache[this.id].data).forEach(
           (elem) => (this[elem] = ufCache[this.id].data[elem])
         );
-        console.log("U cache hit");
-        console.log(this);
         return true;
       } else {
         return false;
@@ -57,7 +55,7 @@ class UpcomingFixtures extends Fixtures {
       ufCache[this.id] = cacheData;
       localStorage.setItem("ufCache", JSON.stringify(ufCache));
     } catch (ex) {
-      alert(ex);
+      alert("An Error Occurred! :(");
     }
   }
   fillData(predData, type) {

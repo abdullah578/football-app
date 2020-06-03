@@ -1,6 +1,7 @@
 import { elements } from "./Base";
 import { radarChart } from "../utils/charts";
 
+//display finished fixtures or live fixtures
 export const displayf = (
   ffObj,
   goals1,
@@ -48,6 +49,7 @@ const calcPercentage = (p1, p2) => {
   else return 50;
 };
 
+//display upcoming fixtures
 export const displayuf = ({ chartData, stats, winner }) => {
   if (!chartData || !stats) return null;
   elements.stats.innerHTML = `
@@ -77,6 +79,8 @@ export const displayuf = ({ chartData, stats, winner }) => {
   );
   displayStats(stats);
 };
+
+//display fixture stats
 const displayStats = (ffObj) => {
   const mapTitle = {
     forme: "Form",

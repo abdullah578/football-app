@@ -5,6 +5,7 @@ export const fetchUserInput = (elem) => {
   return elem.value;
 };
 
+//display the table entry for one team's standing
 const displayStanding = ({ id, logo, name, points }, length) => {
   const html = `
   <li class="team highlight-dark-t" style="${length <= 10 ? "flex:0" : ""}">
@@ -24,6 +25,7 @@ const displayStanding = ({ id, logo, name, points }, length) => {
     .insertAdjacentHTML("beforeend", html);
 };
 
+//display all team standings
 export const displayStandings = (standingArr) => {
   if (!standingArr) {
     elements.standings.innerHTML = "";
@@ -40,6 +42,7 @@ export const displayStandings = (standingArr) => {
   });
 };
 
+//display one fixture in the table
 const displayFixture = (
   { id, status, date, team1, team2, goals1, goals2, elapsed },
   length
@@ -75,6 +78,7 @@ const displayFixture = (
     .querySelector(".content-fixtures-list")
     .insertAdjacentHTML("beforeend", html);
 };
+
 const parseDate = (dateTime) => {
   const fixture_date = new Date(dateTime);
   const months = [
@@ -95,6 +99,8 @@ const parseDate = (dateTime) => {
     fixture_date.toTimeString().split("G")[0]
   }`;
 };
+
+//render buttons based on page (to support pagination)
 export const renderButtons = (currentPage, numPerPage, numItems) => {
   const numPages = Math.ceil(numItems / numPerPage);
   let HTML;
@@ -137,6 +143,7 @@ export const renderButtons = (currentPage, numPerPage, numItems) => {
   elements.pagination.innerHTML = HTML;
 };
 
+//display all fixtures in the table
 export const displayFixtures = (
   fixturesArr,
   currentPage = 1,
@@ -164,7 +171,6 @@ export const displayFixtures = (
   fixturesArr.slice(start, end).forEach((curr) => {
     displayFixture(curr, fixturesArr.length);
   });
-  console.log(fixturesArr.length);
   renderButtons(currentPage, numPerPage, fixturesArr.length);
   if (fixturesArr.length < numPerPage) elements.pagination.innerHTML = "";
 };

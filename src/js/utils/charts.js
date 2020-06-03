@@ -1,5 +1,4 @@
 export const radarChart = function (chartData) {
-  console.log(chartData);
   Highcharts.theme = {
     colors: [
       "#2b908f",
