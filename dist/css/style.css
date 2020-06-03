@@ -28,7 +28,7 @@ body {
   max-width: 1140px;
   margin: 2% auto;
   background-color: #fff;
-  border-radius: 20px;
+  overflow-x: hidden;
 }
 /*The header section */
 header {
