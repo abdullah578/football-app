@@ -22,13 +22,12 @@ body {
     font-size: 10px;
   }
 }
-
 .container {
   height: 96%;
   max-width: 1140px;
   margin: 2% auto;
   background-color: #fff;
-  overflow-x: hidden;
+  overflow-x: auto;
 }
 /*The header section */
 header {
