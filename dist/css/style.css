@@ -26,13 +26,14 @@ body {
   height: 96%;
   max-width: 1140px;
   margin: 2% auto;
-  background-color: #fff;
+  background-color: #435971;
   overflow-x: auto;
 }
 /*The header section */
 header {
   height: 5%;
   background-color: #435971;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-around;
