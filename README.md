@@ -6,12 +6,24 @@ One Paragraph of project description goes here
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
-### Prerequisites
+There are two methods to view the app:
 
-What things you need to install the software and how to install them
-
+First Option:
 ```
-Give examples
+1) Install npm (Node Package Manager)
+2) Clone the git repository
+3) Run 'npm run start' in a terminal
+4) A live updating (if code changes) version of the app will now be running in your browser
+```
+
+Second Option:
+```
+1) Install npm (Node Package Manager)
+2) Clone the git repository
+3) Run 'npm run start' in a terminal
+4) Run 'npm run build' 
+5) In the 'dist' folder, double click 'index.html'
+6) A production build (not live updating if code is changed) will now run in your browser
 ```
 
 ### Installing
@@ -32,17 +44,13 @@ until finished
 
 End with an example of getting some data out of the system or using it for a little demo
 
-## Running the tests
+## User Interface and Features
 
-Explain how to run the automated tests for this system
+This section will show you the features of our app, and how to use them.
 
-### Break down into end to end tests
+#### User Interface
 
-Explain what these tests test and why
-
-```
-Give an example
-```
+[home](docs/ui.jpg)
 
 ### And coding style tests
 
@@ -58,17 +66,10 @@ Add additional notes about how to deploy this on a live system
 
 ## Built With
 
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
-
-## Contributing
-
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
-
-## Versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
+* [Javascript](https://developer.mozilla.org/en-US/docs/Web/JavaScript) - The programming language used
+* [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS) - Used to style the website
+* [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML) - Makes up the app content
+* [npm](https://www.npmjs.com/) - Used to handle packaging and dependencies
 
 ## Authors
 
