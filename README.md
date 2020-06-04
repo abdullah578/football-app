@@ -50,7 +50,7 @@ This section will show you the features of our app, and how to use them.
 
 #### User Interface
 
-![](docs/ui.png?raw=true)
+![ScreenShot](/docs/ui.png)
 
 ### And coding style tests
 
