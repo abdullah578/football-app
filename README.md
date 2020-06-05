@@ -1,12 +1,12 @@
 # Football App
 
-One Paragraph of project description goes here
+This app uses the typical webstack (HTML, CSS, and JS) in conjuction with API-Football to display league standings and fixtures. It is also capable of displaying a specific team's stats and fixtures and can filter out fixtures that don't include a user-entered team in the fixture.
 
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
-There are two methods to view the app:
+There are four methods to view the app:
 
 First Option:
 ```
@@ -26,54 +26,50 @@ Second Option:
 6) A production build (not live updating if code is changed) will now run in your browser
 ```
 
-### Installing
-
-A step by step series of examples that tell you how to get a development env running
-
-Say what the step will be
-
+Third Option:
 ```
-Give the example
+1) From the 'dist' folder, upload the 'img', 'css', and 'js' folders as well as 'index.html' to a webserver
+2) Set up your webserver to serve 'index.html', and you should be able to see the website running.
 ```
 
-And repeat
+Fourth Option:
 
-```
-until finished
-```
+1) Visit: [sysadmin.skule.ca](http://sysadmin.skule.ca)
 
-End with an example of getting some data out of the system or using it for a little demo
+
+
 
 ## User Interface and Features
 
 This section will show you the features of our app, and how to use them.
 
-#### User Interface
+#### Home Page
+![Home Page](/docs/ui.PNG)
 
-![](/docs/ui.PNG)
+At this point, the user enters a league name in the search bar and either presses the 'Search' button, or the ENTER key.
 
-### And coding style tests
+#### Features and App Explanation Video
 
-Explain what these tests test and why
+
 
 ```
-Give an example
+youtube link
 ```
 
-## Deployment
 
-Add additional notes about how to deploy this on a live system
 
 ## Built With
 
 * [Javascript](https://developer.mozilla.org/en-US/docs/Web/JavaScript) - The programming language used
 * [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS) - Used to style the website
 * [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML) - Makes up the app content
+* [API-Football](https://www.api-football.com/) - Provides the football data 
 * [npm](https://www.npmjs.com/) - Used to handle packaging and dependencies
 
 ## Authors
 
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
+* **Abdullah Mohammed** - *HTML, CSS and JS* - [LinkedIn](https://www.linkedin.com/in/abdullah-mohammed-456290195/)
+* **Joel Majano** - *Website Design and Colours, JS* - [LinkedIn](https://www.linkedin.com/in/joelmajano/)
 
 See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
 
@@ -83,6 +79,4 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 ## Acknowledgments
 
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
+* UofT for not offering a Javascript course and making us learn on our own 0_o
