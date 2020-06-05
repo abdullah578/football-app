@@ -50,11 +50,7 @@ At this point, the user enters a league name in the search bar and either presse
 
 #### Features and App Explanation Video
 
-
-
-```
-youtube link
-```
+[![Explanation Video](http://img.youtube.com/vi/X_1jWu7ovnc/0.jpg)](https://www.youtube.com/watch?v=X_1jWu7ovnc "Football App Explanation Video")
 
 
 
