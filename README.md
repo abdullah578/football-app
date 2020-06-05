@@ -1,6 +1,6 @@
 # Football App
 
-This app uses the typical webstack (HTML, CSS, and JS) in conjuction with API-Football to display league standings and fixtures. It is also capable of displaying a specific team's stats and fixtures and can filter out fixtures that don't include a user-entered team in the fixture.
+This app uses the typical webstack (HTML, CSS, and JS) and the MVC (Model View Controller) architecture in conjuction with API-Football to display league standings and fixtures. It is also capable of displaying a specific team's stats and fixtures and can filter out fixtures that don't include a user-entered team in the fixture.
 
 ## Getting Started
 
