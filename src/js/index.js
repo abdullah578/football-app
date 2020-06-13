@@ -173,7 +173,8 @@ const lfController = async (id) => {
     index2 !== -1 ? (state.dispFixture[index2] = state.lf.info) : null;
 
     //display the modified fixtures array
-    displayFixtures(state.dispFixture, page);
+    displayFixtures(state.dispFixture, state.current_page);
+
 
     //highlight the live fixture
     clearSelected("l");

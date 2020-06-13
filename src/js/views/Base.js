@@ -1,4 +1,3 @@
-
 //giving simple name for required DOM elements
 export const elements = {
   search: document.querySelector(".header-form-btn"),
@@ -27,9 +26,10 @@ export const displaySpinner = (...elems) => {
 
 //highlights a certain element
 export const highlightSelected = (id, type) => {
-  document
-    .querySelector(`a[href="#${type}${id}"]`)
-    .parentNode.classList.add("team-active");
+  if (document.querySelector(`a[href="#${type}${id}"]`))
+    document
+      .querySelector(`a[href="#${type}${id}"]`)
+      .parentNode.classList.add("team-active");
 };
 
 //clears a highlighted element

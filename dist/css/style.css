@@ -28,6 +28,7 @@ body {
   margin: 2% auto;
   background-color: #435971;
   overflow-x: auto;
+  overflow-y: hidden;
 }
 /*The header section */
 header {
@@ -423,7 +424,7 @@ tr:nth-child(odd) {
   list-style: none;
   border-bottom: solid 1px #1b1f23;
   padding-bottom: 2px;
-  height: 100%;
+  flex: 0;
   background-color: #2d3844;
   transition: background-color 0.2s;
 }
@@ -477,7 +478,7 @@ tr:nth-child(odd) {
 }
 .fixtures-pag {
   flex: 0 0 5%;
-  padding-top: 25px;
+  padding-top: 15px;
   padding-left: 5px;
   padding-right: 5px;
 }

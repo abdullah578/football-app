@@ -147,7 +147,7 @@ export const renderButtons = (currentPage, numPerPage, numItems) => {
 export const displayFixtures = (
   fixturesArr,
   currentPage = 1,
-  numPerPage = 15
+  numPerPage = 16
 ) => {
   if (!fixturesArr) {
     elements.fixtureContent.innerHTML = "";
